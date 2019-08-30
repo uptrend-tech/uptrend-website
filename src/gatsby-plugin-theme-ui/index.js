@@ -28,14 +28,13 @@ export default {
     inputBackground: darkGreen, //
   },
   fonts: {
-    body: "system-ui, sans-serif",
-    heading: "system-ui, sans-serif",
-    monospace: "Menlo, monospace",
+    body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
+    heading: `"Comfortaa", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
   },
   fontWeights: {
     body: 400,
-    heading: 700,
-    bold: 700,
+    heading: 'normal',
+    // bold: 700,
   },
   lineHeights: {
     body: 1.5,
@@ -60,12 +59,12 @@ export default {
       // height: 42px;
       // font-family: Comfortaa;
       fontSize: 6,
-      fontWeight: "bold",
-      fontStyle: "normal",
-      fontStretch: "normal",
+      fontWeight: 'bold',
+      fontStyle: 'normal',
+      fontStretch: 'normal',
       lineHeight: 1.31,
-      letterSpacing: "0.04px",
-      color: "text",
+      letterSpacing: '0.04px',
+      color: 'text',
     },
   },
 }

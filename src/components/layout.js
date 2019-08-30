@@ -1,38 +1,23 @@
-import React from "react"
-import { Global } from "@emotion/core"
-import { Main, css, useColorMode } from "theme-ui"
+import React from 'react'
+import { Global } from '@emotion/core'
+import { Main, css } from 'theme-ui'
 // import "typeface-ibm-plex-sans"
-// import "../fonts/benguiat.css"
+import '../fonts/avenir-lt-std.css'
 
-import SEO from "./seo"
-import Header from "./header"
-import Footer from "./footer"
+import SEO from './seo'
+import Header from './header'
+import Footer from './footer'
 
 const Layout = ({ children, className, newsletter }) => {
-  const [mode] = useColorMode()
 
-  let headingStyles = {}
+  const headingStyles = {}
 
-  if (mode === `strangerThings`) {
-    headingStyles = {
-      "h1, h2, h3": {
-        fontFamily: `Benguiat Bold !important`,
-        textShadow: `-0.05rem -0.05rem 1px #ed2b12,
-        0.05rem -0.05rem 1px #ed2b12,
-        -0.05rem 0.05rem 1px #ed2b12,
-        0.05rem 0.05rem 1px #ed2b12,
-        0 0 15px #630100,
-        0 0 20px #450100`,
-      },
-    }
-  }
   return (
     <>
       <Global
         styles={css(
-          Object.assign(
-            {
-              "*": {
+          {
+            '*': {
                 boxSizing: `inherit`,
               },
               body: {
@@ -49,11 +34,11 @@ const Layout = ({ children, className, newsletter }) => {
                 lineHeight: `body`,
                 fontWeight: `body`,
               },
-              "::selection": {
+              '::selection': {
                 backgroundColor: `text`,
                 color: `background`,
               },
-              "#___gatsby": {
+              '#___gatsby': {
                 position: `relative`,
                 overflowX: `hidden`,
               },
@@ -61,13 +46,12 @@ const Layout = ({ children, className, newsletter }) => {
                 transition: `all 0.3s ease-in-out`,
                 textDecoration: `none`,
                 outline: `none`,
-                "&:focus": {
+                '&:focus': {
                   boxShadow: `outline`,
                 },
               },
-            },
-            headingStyles
-          )
+            ...headingStyles
+          }
         )}
       />
       {!newsletter && <SEO />}
