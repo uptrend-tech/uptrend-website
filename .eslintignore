@@ -1,0 +1,10 @@
+node_modules/
+.cache/
+public/
+static/
+
+coverage/
+dist/
+build/
+out/
+.next/

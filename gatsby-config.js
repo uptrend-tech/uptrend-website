@@ -1,24 +1,20 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ */
+
 module.exports = {
-  plugins: [
-    {
-      resolve: `gatsby-theme-blog`,
-      options: {},
-    },
-  ],
-  // Customize your site metadata:
   siteMetadata: {
-    title: `My Blog Title`,
-    author: `My Name`,
-    description: `My site description...`,
-    social: [
-      {
-        name: `twitter`,
-        url: `https://twitter.com/gatsbyjs`,
-      },
-      {
-        name: `github`,
-        url: `https://github.com/gatsbyjs`,
-      },
-    ],
+    siteUrl: `https://uptrend.tech`,
+    language: `en`,
+    image: `/banner.png`,
+    // TODO: improve
+    author: `@uptrend_tech`,
+    title: `Uptrend - Software Design & Development Services`,
+    titleAlt: `Software Design & Development Agency - Uptrend`,
+    description: `Top talent designers and engineers. Web & mobile development. Human-centered design and technology.`,
+    headline: `Users expect beautiful, intuitive products and we help you design and develop them.`,
   },
+  plugins: ["gatsby-plugin-theme-ui"],
 }

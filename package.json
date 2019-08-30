@@ -1,16 +1,56 @@
 {
-  "name": "gatsby-starter-blog-theme",
+  "name": "uptrend-website",
   "private": true,
-  "version": "0.0.1",
+  "description": "Uptrend Website",
+  "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "lint": "kcd-scripts lint",
+    "format": "kcd-scripts format",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@mdx-js/react": "^1.4.0",
     "gatsby": "^2.13.73",
-    "gatsby-theme-blog": "^1.0.2",
+    "gatsby-plugin-theme-ui": "^0.2.38",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.2.38"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^1.7.0",
+    "prettier": "^1.18.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "kentcdodds",
+      "kentcdodds/jest"
+    ],
+    "rules": {
+      "no-process-exit": "off",
+      "import/no-dynamic-require": "off",
+      "import/no-unassigned-import": "off",
+      "no-console": "off",
+      "no-nested-ternary": "off",
+      "no-useless-catch": "off"
+    }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uptrend-tech/uptrend-website"
+  },
+  "bugs": {
+    "url": "https://github.com/uptrend-tech/uptrend-website/issues"
   }
 }
