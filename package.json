@@ -21,7 +21,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "theme-ui": "^0.2.38"
+    "theme-ui": "^0.2.38",
+    "typeface-comfortaa": "^0.0.76"
   },
   "devDependencies": {
     "kcd-scripts": "^1.7.0",

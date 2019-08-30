@@ -51,6 +51,13 @@ export default {
       bg: null,
     },
   },
+  styles: {
+    h1: {
+      fontFamily: `heading`,
+      lineHeight: `heading`,
+      fontWeight: `heading`,
+    },
+  },
 
   // TODO: setup proper variants like https://theme-ui.com/guides/variants
   text: {

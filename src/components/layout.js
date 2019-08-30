@@ -1,7 +1,7 @@
 import React from 'react'
 import { Global } from '@emotion/core'
 import { Main, css } from 'theme-ui'
-// import "typeface-ibm-plex-sans"
+import 'typeface-comfortaa'
 import '../fonts/avenir-lt-std.css'
 
 import SEO from './seo'
