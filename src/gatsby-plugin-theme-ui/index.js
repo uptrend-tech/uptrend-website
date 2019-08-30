@@ -45,6 +45,7 @@ export default {
     primary: {
       color: white,
       bg: loudPurple,
+      fontFamily: 'heading',
     },
     secondary: {
       color: loudPurple,
@@ -52,7 +53,11 @@ export default {
     },
   },
   styles: {
+    Header: {
+      bg: grayBlue,
+    },
     h1: {
+      fontSize: '60px', // TODO use fontSizes scale
       fontFamily: `heading`,
       lineHeight: `heading`,
       fontWeight: `heading`,
