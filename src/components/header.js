@@ -1,27 +1,21 @@
 /** @jsx jsx */
-import { Container, Header as ThemeHeader, jsx, Flex, Box } from "theme-ui"
+import { Header as ThemeHeader, jsx, Flex, Box } from "theme-ui"
 import Logo from "../icons/logo"
+import GridSection from "./grid-section"
 
 const Header = () => {
   return (
     <ThemeHeader>
-      <Container sx={{ py: 24 }}>
-        <Flex
-          sx={{
-            alignItems: `center`,
-            justifyContent: `space-between`,
-            flexDirection: [`column`, `row`],
-          }}
-        >
-          <Flex>
-            <Logo sx={{ height: 48 }} />
-          </Flex>
-          {/* TODO add nav links */}
+      <GridSection name="header">
+        <Box sx={{ gridArea: `1 / 1 / 1 / 6` }}>
+          <Logo sx={{ height: 48 }} />
+        </Box>
+        <Box sx={{ gridArea: `1 / 1 / 5 / 12` }}>
           <Flex sx={{ mt: [4, 0], alignItems: `center`, display: "none" }}>
             <Box sx={{ color: `dark` }}>Home</Box>
           </Flex>
-        </Flex>
-      </Container>
+        </Box>
+      </GridSection>
     </ThemeHeader>
   )
 }
