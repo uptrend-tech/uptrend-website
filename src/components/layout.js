@@ -1,21 +1,22 @@
-import React from "react"
-import { Global } from "@emotion/core"
-import { Main, css } from "theme-ui"
-import "typeface-comfortaa"
-import "../fonts/avenir-lt-std.css"
+import React from 'react'
+import { Global } from '@emotion/core'
+import { css, Box } from 'theme-ui'
+import 'typeface-comfortaa'
+import '../fonts/avenir-lt-std.css'
 
-import SEO from "./seo"
-import Header from "./header"
-import Footer from "./footer"
+// import SEO from './seo'
+import Header from './header'
+import Footer from './footer'
+import GridSection from './grid-section'
 
-const Layout = ({ children, className, newsletter }) => {
+const Layout = ({ children }) => {
   const headingStyles = {}
 
   return (
     <>
       <Global
         styles={css({
-          "*": {
+          '*': {
             boxSizing: `inherit`,
           },
           body: {
@@ -32,11 +33,11 @@ const Layout = ({ children, className, newsletter }) => {
             lineHeight: `body`,
             fontWeight: `body`,
           },
-          "::selection": {
+          '::selection': {
             backgroundColor: `text`,
             color: `background`,
           },
-          "#___gatsby": {
+          '#___gatsby': {
             position: `relative`,
             overflowX: `hidden`,
           },
@@ -44,16 +45,18 @@ const Layout = ({ children, className, newsletter }) => {
             transition: `all 0.3s ease-in-out`,
             textDecoration: `none`,
             outline: `none`,
-            "&:focus": {
+            '&:focus': {
               boxShadow: `outline`,
             },
           },
           ...headingStyles,
         })}
       />
-      {!newsletter && <SEO />}
-      {false && <Header />}
-      <Main className={className}>{children}</Main>
+      <Header />
+
+      <GridSection name="layout-content">
+        <Box>{children}</Box>
+      </GridSection>
       {false && <Footer />}
     </>
   )
