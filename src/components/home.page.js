@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import React from 'react'
-import { Box, Flex, jsx, Styled } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
+import Img from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-site-metadata'
-import HeroImg from '../assets/images/hero-gillette-carecar-screens@3x.png'
 import Logo from '../icons/logo'
 import Button from './button'
 
-const RawHtml = () => {
+const RawHtml = ({ data }) => {
   const site = useSiteMetadata()
 
   return (
@@ -52,10 +52,9 @@ const RawHtml = () => {
             </Button>
           </div>
           <div className="hero-image">
-            <Styled.img
-              src={HeroImg}
+            <Img
+              fluid={data.heroImage.childImageSharp.fluid}
               alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
-              /* sx={{ width: "100%" }} */
             />
           </div>
         </div>

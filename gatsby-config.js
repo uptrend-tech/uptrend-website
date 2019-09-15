@@ -16,5 +16,16 @@ module.exports = {
     description: `Top talent designers and engineers. Web & mobile development. Human-centered design and technology.`,
     headline: `Users expect beautiful, intuitive products and we help you design and develop them.`,
   },
-  plugins: ["gatsby-plugin-theme-ui"],
+  plugins: [
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
+  ],
 }
