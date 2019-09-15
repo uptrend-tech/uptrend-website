@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, jsx, Styled } from 'theme-ui'
+import { Main, Box, Flex, jsx, Styled } from 'theme-ui'
 import Layout from '../components/layout'
 // import Hero from '../components/hero'
 // import GridSection from '../components/grid-section'
@@ -29,7 +29,9 @@ const Index = props => (
       </GridSection>
     </div>
     */}
-    <HomePage {...props} />
+    <Main>
+      <HomePage {...props} />
+    </Main>
   </Layout>
 )
 
