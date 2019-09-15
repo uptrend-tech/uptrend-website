@@ -40,18 +40,19 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-  buttons: {
-    primary: {
-      color: white,
-      bg: loudPurple,
-      fontFamily: 'heading',
-    },
-    secondary: {
-      color: loudPurple,
-      bg: null,
-    },
-  },
+  // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontSizes: [
+    /// h6[1] ... h1[5]
+    16,
+    18,
+    20,
+    24,
+    28,
+    32,
+    36,
+    48,
+    60,
+  ],
   styles: {
     Header: {
       bg: grayBlue,
@@ -77,6 +78,18 @@ export default {
       lineHeight: 1.31,
       letterSpacing: '0.04px',
       color: 'text',
+    },
+  },
+  buttons: {
+    primary: {
+      color: white,
+      bg: loudPurple,
+      fontFamily: 'heading',
+      fontSize: 20,
+    },
+    secondary: {
+      color: loudPurple,
+      bg: null,
     },
   },
 }
