@@ -10,7 +10,7 @@ const grayBlue = `#363648`
 
 // other
 const loudPurple = `#706bf6`
-const fogPurple = `#d2d0fc`
+const fogPurple = `#d2d0fd`
 const palePurple = `#eeedfe`
 const darkGreen = `#1c1c1c`
 
@@ -54,14 +54,39 @@ export default {
     60,
   ],
   styles: {
+    Container: {
+      maxWidth: 1280,
+    },
     Header: {
       bg: grayBlue,
+    },
+    a: {
+      color: 'primary',
+      '&:hover': {
+        color: 'secondary',
+      },
     },
     h1: {
       fontSize: '60px', // TODO use fontSizes scale
       fontFamily: `heading`,
       lineHeight: `heading`,
       fontWeight: `heading`,
+    },
+    navlink: {
+      display: 'block',
+      color: 'secondary',
+      textDecoration: 'none',
+      fontSize: 2,
+      fontWeight: 500,
+      fontFamily: 'body',
+      // fontStyle: normal,
+      // fontStretch: normal,
+      lineHeight: '1px',
+      letterSpacing: '1.11px',
+      // textAlign: center,
+      '&.hover': {
+        color: 'primary',
+      },
     },
   },
 
