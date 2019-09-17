@@ -27,6 +27,7 @@ const RawHtml = ({ data }) => {
           />
         </div>
       </div>
+      <Styled.hr />
       <section>
         <Styled.h3>{`We've Built Solutions For`}</Styled.h3>
         <div className="built-for-logos">

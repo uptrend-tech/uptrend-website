@@ -13,6 +13,7 @@ const loudPurple = `#706bf6`
 const fogPurple = `#d2d0fd`
 const palePurple = `#eeedfe`
 const darkGreen = `#1c1c1c`
+const brownGray = '#979797'
 
 export default {
   colors: {
@@ -26,6 +27,7 @@ export default {
     pale: palePurple, //
     soft: redHintWhite, //
     inputBackground: darkGreen, //
+    seperator: brownGray,
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -131,7 +133,7 @@ export default {
     hr: {
       border: 0,
       borderBottom: '1px solid',
-      borderColor: 'muted',
+      borderColor: 'seperator',
     },
     xray: {
       '*': {
