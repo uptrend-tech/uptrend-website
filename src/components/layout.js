@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react'
 import { Global } from '@emotion/core'
-import { css, Box } from 'theme-ui'
+import { Container, jsx, css, Box } from 'theme-ui'
 import 'typeface-comfortaa'
 import '../fonts/avenir-lt-std.css'
 
@@ -46,10 +47,7 @@ const Layout = ({ children }) => {
       />
       <Box id="top" />
       <Header />
-
-      <GridSection name="layout-content">
-        <Box>{children}</Box>
-      </GridSection>
+      <Container>{children}</Container>
       {false && <Footer />}
     </>
   )
