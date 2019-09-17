@@ -8,27 +8,6 @@ import HomePage from '../components/home.page'
 
 const Index = props => (
   <Layout>
-    {/*
-    <Hero />
-
-    <div>
-      <GridSection name="what-we-do">
-        <Box sx={{ gridArea: `1 / 1 / 2 / 7` }}>
-          <Styled.h2>What We Do</Styled.h2>
-          <Box sx={{ mt: 5 }} />
-        </Box>
-        <Box sx={{ gridArea: `1 / 6 / 2 / 13` }}>
-          <Flex
-            sx={{
-              alignItems: `center`,
-              justifyContent: `space-between`,
-              flexDirection: [`column`, `row`],
-            }}
-          />
-        </Box>
-      </GridSection>
-    </div>
-    */}
     <Main>
       <HomePage {...props} />
     </Main>

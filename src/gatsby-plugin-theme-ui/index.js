@@ -30,35 +30,27 @@ export default {
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
     heading: `"Comfortaa", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
+    monospace: 'Menlo, monospace',
   },
+  fontSizes: [16, 18, 20, 24, 28, 32, 36, 48, 60],
   fontWeights: {
-    body: 400,
+    body: 500,
     heading: 'normal',
-    // bold: 700,
   },
   lineHeights: {
     body: 1.5,
     heading: 1.125,
   },
-  // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-  fontSizes: [
-    /// h6[1] ... h1[5]
-    16,
-    18,
-    20,
-    24,
-    28,
-    32,
-    36,
-    48,
-    60,
-  ],
+  letterSpacing: {
+    body: 1,
+    heading: 0.1,
+  },
   styles: {
     Container: {
       maxWidth: 1280,
     },
     Header: {
-      bg: grayBlue,
+      bg: 'backgroundLight',
     },
     a: {
       color: 'primary',
@@ -66,25 +58,96 @@ export default {
         color: 'secondary',
       },
     },
+    img: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
     h1: {
-      fontSize: '60px', // TODO use fontSizes scale
       fontFamily: `heading`,
-      lineHeight: `heading`,
       fontWeight: `heading`,
+      fontSize: 8,
+      letterSpacing: 0.08,
+      lineHeight: 1.1,
+    },
+    h2: {
+      fontFamily: `heading`,
+      fontWeight: `heading`,
+      fontSize: [6, 7],
+      letterSpacing: [0.05, 0.07],
+      lineHeight: [1.22, 1.67],
+    },
+    h3: {
+      fontFamily: `heading`,
+      fontWeight: `heading`,
+      fontSize: 4,
+      letterSpacing: 0.5,
+      lineHeight: 1.5,
+    },
+    h4: {
+      fontFamily: `body`,
+      fontWeight: 400,
+      fontSize: 3,
+      letterSpacing: 1.2,
+      lineHeight: 1.5,
+    },
+    p: {
+      fontFamily: `body`,
+      fontWeight: `body`,
+      fontSize: 1,
+      letterSpacing: 1.13,
+      lineHeight: 1.28,
+    },
+    code: {
+      fontFamily: 'monospace',
+      fontSize: 1,
+    },
+    inlineCode: {
+      fontFamily: 'monospace',
+      color: 'secondary',
+      bg: 'muted',
+    },
+    table: {
+      width: '100%',
+      my: 4,
+      borderCollapse: 'separate',
+      borderSpacing: 0,
+      [['th', 'td']]: {
+        textAlign: 'left',
+        py: '4px',
+        pr: '4px',
+        pl: 0,
+        borderColor: 'muted',
+        borderBottomStyle: 'solid',
+      },
+    },
+    th: {
+      verticalAlign: 'bottom',
+      borderBottomWidth: '2px',
+    },
+    td: {
+      verticalAlign: 'top',
+      borderBottomWidth: '1px',
+    },
+    hr: {
+      border: 0,
+      borderBottom: '1px solid',
+      borderColor: 'muted',
+    },
+    xray: {
+      '*': {
+        outline: '1px solid rgba(0, 192, 255, .25)',
+      },
     },
     navlink: {
-      display: 'block',
-      color: 'secondary',
-      textDecoration: 'none',
+      fontWeight: `body`,
+      fontFamily: `body`,
       fontSize: 2,
-      fontWeight: 500,
-      fontFamily: 'body',
-      // fontStyle: normal,
-      // fontStretch: normal,
-      lineHeight: '1px',
-      letterSpacing: '1.11px',
-      // textAlign: center,
-      '&.hover': {
+      display: `block`,
+      color: `secondary`,
+      textDecoration: 'none',
+      lineHeight: 1,
+      letterSpacing: 1,
+      '&:hover': {
         color: 'primary',
       },
     },
@@ -92,6 +155,25 @@ export default {
 
   // TODO: setup proper variants like https://theme-ui.com/guides/variants
   text: {
+    dim: {
+      color: 'muted',
+      fontWeight: 'normal',
+    },
+    tight: {
+      fontSize: 0,
+      fontWeight: 900,
+      lineHeight: 1.13,
+      letterSpacing: 1,
+    },
+    tightDim: {
+      color: 'muted',
+      fontWeight: 'normal',
+      fontSize: 0,
+      lineHeight: 1.25,
+      letterSpacing: 0.8,
+    },
+
+    // TODO: remove h2small
     h2small: {
       // width: 243px;
       // height: 42px;
@@ -107,10 +189,12 @@ export default {
   },
   buttons: {
     primary: {
-      color: white,
-      bg: loudPurple,
+      color: 'text',
+      bg: 'primary',
       fontFamily: 'heading',
       fontSize: 20,
+      borderRadius: 5,
+      boxShadow: '0 2px 6px 2px rgba(0, 0, 0, 0.56)',
     },
     secondary: {
       color: loudPurple,
