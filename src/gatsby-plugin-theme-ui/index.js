@@ -7,6 +7,7 @@ const fogGray = `#9da7b3`
 const deepBlue = `#10102a`
 const darkBlue = `#05121d`
 const grayBlue = `#363648`
+const lightRoyalBlue = `#413aef`
 
 // other
 const loudPurple = `#706bf6`
@@ -28,6 +29,7 @@ export default {
     soft: redHintWhite, //
     inputBackground: darkGreen, //
     seperator: brownGray,
+    primaryHover: lightRoyalBlue,
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -193,10 +195,17 @@ export default {
     primary: {
       color: 'text',
       bg: 'primary',
+      width: 300,
+      height: 51,
       fontFamily: 'heading',
-      fontSize: 20,
+      fontSize: 2,
       borderRadius: 5,
       boxShadow: '0 2px 6px 2px rgba(0, 0, 0, 0.56)',
+      lineHeight: 1,
+      '&:hover': {
+        bg: 'primaryHover',
+        cursor: 'pointer',
+      },
     },
     secondary: {
       color: loudPurple,
