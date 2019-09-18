@@ -2,7 +2,7 @@
 import { Link } from 'gatsby'
 import { Header as ThemeHeader, jsx, Flex, Box } from 'theme-ui'
 
-import Logo from '../icons/logo'
+import logo from '../images/uptrend-logo.svg'
 import NavLink from '../components/nav-link'
 
 const styles = {
@@ -31,7 +31,7 @@ const Header = () => {
           {/*<!-- Removed the title attribute -->*/}
           {/*<!-- It is an anti-pattern -->*/}
           <Link to="/#top">
-            <Logo sx={{ height: 48 }} />
+            <img src={logo} alt="Uptrend Logo" sx={{ height: 48 }} />
           </Link>
         </Box>
 
