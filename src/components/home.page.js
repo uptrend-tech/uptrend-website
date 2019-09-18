@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx, Styled } from 'theme-ui'
+import { jsx, Styled, Container, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-site-metadata'
-import Logo from '../icons/logo'
 import Button from './button'
 
 const RawHtml = ({ data }) => {
@@ -15,18 +14,31 @@ const RawHtml = ({ data }) => {
       {/*<!-- Removed the <article> -->*/}
       {/*<!-- It is redundant, adds no value -->*/}
       {/*<!-- If poorly scoped, can create noise -->*/}
-      <div className="hero">
-        <div className="hero-content">
+      <Container
+        className="hero"
+        // as="section"
+        data-name={name}
+        // data-name="hero"
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: `repeat(12, 1fr); `,
+          gridColumnGap: '29px',
+          gridRowGap: 0,
+          maxWidth: '1280px',
+          mx: 'auto',
+        }}
+      >
+        <Box sx={{ gridArea: `1 / 1 / 2 / 7` }} className="hero-content">
           <Styled.h1>{site.headline}</Styled.h1>
           <Button sx={{ variant: 'buttons.primary' }}>Estimate Project</Button>
-        </div>
-        <div className="hero-image">
+        </Box>
+        <Box sx={{ gridArea: `1 / 6 / 2 / 13` }} className="hero-image">
           <Img
             fluid={data.heroImage.childImageSharp.fluid}
             alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
           />
-        </div>
-      </div>
+        </Box>
+      </Container>
       <Styled.hr />
       <section>
         <Styled.h3>{`We've Built Solutions For`}</Styled.h3>
