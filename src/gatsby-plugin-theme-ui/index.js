@@ -202,7 +202,7 @@ export default {
     contain: {
       mx: 'auto',
       width: '100%',
-      maxWidth: 1280,
+      maxWidth: 1440,
       px: 80,
       py: 0,
     },
@@ -212,6 +212,15 @@ export default {
       gridColumnGap: '29px',
       gridRowGap: 0,
       mx: 'auto',
+    },
+    lightSection: {
+      // position: 'absolute',
+      left: 0,
+      width: '100%',
+      maxWidth: 'none',
+      margin: 0,
+      padding: 0,
+      bg: 'backgroundLight',
     },
   },
 

@@ -42,9 +42,7 @@ const Layout = ({ children }) => {
         })}
       />
       <Header />
-      <Main>
-        <Container>{children}</Container>
-      </Main>
+      <Main>{children}</Main>
       <Footer />
     </ThemeLayout>
   )
