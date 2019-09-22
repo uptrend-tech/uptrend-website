@@ -8,9 +8,7 @@ import HomePage from '../components/home.page'
 
 const Index = props => (
   <Layout>
-    <Main>
-      <HomePage {...props} />
-    </Main>
+    <HomePage {...props} />
   </Layout>
 )
 

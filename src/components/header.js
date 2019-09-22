@@ -20,10 +20,9 @@ const Header = () => {
     <ThemeHeader>
       <Flex
         sx={{
-          maxWidth: '1280px',
+          variant: 'styles.container',
           mx: 'auto',
           my: '24px',
-          width: '100%',
           justifyContent: 'space-between',
         }}
       >

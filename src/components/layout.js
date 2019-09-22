@@ -1,20 +1,29 @@
 /** @jsx jsx */
 import React from 'react'
 import { Global } from '@emotion/core'
-import { Container, jsx, css, Box } from 'theme-ui'
+import {
+  Main,
+  Layout as ThemeLayout,
+  Container,
+  jsx,
+  css,
+  Box,
+  Flex,
+} from 'theme-ui'
 import 'typeface-comfortaa'
 import '../fonts/avenir-lt-std.css'
 
 // import SEO from './seo'
 import Header from './header'
 import Footer from './footer'
+
 import GridSection from './grid-section'
 
 const Layout = ({ children }) => {
   const headingStyles = {}
 
   return (
-    <>
+    <ThemeLayout>
       <Global
         styles={css({
           '*': {
@@ -45,11 +54,12 @@ const Layout = ({ children }) => {
           ...headingStyles,
         })}
       />
-      <Box id="top" />
       <Header />
-      <Container>{children}</Container>
-      {false && <Footer />}
-    </>
+      <Main>
+        <Container>{children}</Container>
+      </Main>
+      <Footer />
+    </ThemeLayout>
   )
 }
 

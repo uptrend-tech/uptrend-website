@@ -1,12 +1,19 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { Styled, Footer as ThemeFooter } from "theme-ui"
+import { Footer as ThemeFooter, jsx, Styled, Box } from 'theme-ui'
 
-const Footer = props => (
+const Footer = () => (
   <ThemeFooter>
-    <Styled.h2 sx={{ variant: "text.h2small", display: "none" }}>
-      Where To Find Us
-    </Styled.h2>
+    <Box sx={{ variant: 'styles.container' }}>
+      <Styled.h3 sx={{ color: 'soft' }}>Where To Find Us</Styled.h3>
+
+      <Styled.h6>Phone</Styled.h6>
+      <Styled.p>xxx-xxx-xxxx</Styled.p>
+
+      <Styled.h6>Location</Styled.h6>
+      <Styled.p>100 E San Marcos Blvd</Styled.p>
+      <Styled.p>Suite #430</Styled.p>
+      <Styled.p>San Marcos, CA 92069</Styled.p>
+    </Box>
   </ThemeFooter>
 )
 

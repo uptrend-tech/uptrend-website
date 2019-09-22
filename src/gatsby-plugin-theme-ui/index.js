@@ -51,10 +51,14 @@ export default {
   },
   styles: {
     Container: {
-      maxWidth: 1280,
+      variant: 'styles.container',
     },
     Header: {
       bg: 'backgroundLight',
+    },
+    Footer: {
+      bg: 'backgroundLight',
+      py: 52,
     },
     a: {
       color: 'primary',
@@ -82,7 +86,7 @@ export default {
     },
     h3: {
       fontFamily: `heading`,
-      fontWeight: `heading`,
+      fontWeight: 'bold',
       fontSize: 4,
       letterSpacing: 0.5,
       lineHeight: 1.5,
@@ -155,8 +159,14 @@ export default {
         color: 'primary',
       },
     },
+    container: {
+      mx: 'auto',
+      width: '100%',
+      maxWidth: 1280,
+      px: 80,
+      py: 0,
+    },
   },
-
   // TODO: setup proper variants like https://theme-ui.com/guides/variants
   text: {
     dim: {
@@ -175,20 +185,6 @@ export default {
       fontSize: 0,
       lineHeight: 1.25,
       letterSpacing: 0.8,
-    },
-
-    // TODO: remove h2small
-    h2small: {
-      // width: 243px;
-      // height: 42px;
-      // font-family: Comfortaa;
-      fontSize: 6,
-      fontWeight: 'bold',
-      fontStyle: 'normal',
-      fontStretch: 'normal',
-      lineHeight: 1.31,
-      letterSpacing: '0.04px',
-      color: 'text',
     },
   },
   buttons: {

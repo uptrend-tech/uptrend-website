@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx, Styled, Container, Box, Flex } from 'theme-ui'
+import { jsx, Styled, Box } from 'theme-ui'
 import Img from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-site-metadata'
@@ -9,12 +9,14 @@ import Button from './button'
 const RawHtml = ({ data }) => {
   const site = useSiteMetadata()
 
+  // return 'content'
+
   return (
     <>
       {/*<!-- Removed the <article> -->*/}
       {/*<!-- It is redundant, adds no value -->*/}
       {/*<!-- If poorly scoped, can create noise -->*/}
-      <Container
+      <Box
         className="hero"
         // as="section"
         data-name={name}
@@ -38,7 +40,7 @@ const RawHtml = ({ data }) => {
             alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
           />
         </Box>
-      </Container>
+      </Box>
       <Styled.hr />
       <section>
         <Styled.h3>{`We've Built Solutions For`}</Styled.h3>
@@ -232,18 +234,6 @@ const RawHtml = ({ data }) => {
           </ul>
         </section>
       </section>
-      {/* TODO move the following into Footer component */}/>
-      <div>
-        <h3>Where To Find Us</h3>
-
-        <h6>Phone</h6>
-        <p>xxx-xxx-xxxx</p>
-
-        <h6>Location</h6>
-        <p>100 E San Marcos Blvd</p>
-        <p>Suite #430</p>
-        <p>San Marcos, CA 92069</p>
-      </div>
     </>
   )
 }
