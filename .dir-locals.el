@@ -2,5 +2,4 @@
 ;;; For more information see (info "(emacs) Directory Variables")
 
 ((js2-mode
-  ;; (eval eslintd-fix-mode)))
   (eval prettier-js-mode)))
