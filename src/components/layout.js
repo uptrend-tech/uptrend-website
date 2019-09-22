@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
             padding: 0,
             boxSizing: `border-box`,
             textRendering: `optimizeLegibility`,
-            fontSize: `18px`,
+            fontSize: 1,
             WebkitFontSmoothing: `antialiased`,
             MozOsxFontSmoothing: `grayscale`,
             color: `text`,

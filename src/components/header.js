@@ -20,10 +20,9 @@ const Header = () => {
     <ThemeHeader>
       <Flex
         sx={{
-          variant: 'styles.container',
-          mx: 'auto',
-          my: '24px',
+          variant: 'styles.contain',
           justifyContent: 'space-between',
+          my: 24,
         }}
       >
         <Box>
@@ -41,36 +40,18 @@ const Header = () => {
         {/*<!-- Removed the aria-label -->*/}
         {/*<!-- Its position implies it is primary -->*/}
         {/*<!-- Its presence adds noise for SR users -->*/}
-        <nav
-          className="primary-nav"
-          sx={{
-            width: '100%',
-            maxWidth: 735,
-            height: 48,
-          }}
-        >
-          <ul
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              p: 0,
-              m: 0,
-              width: '100%',
-              height: '100%',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-            }}
-          >
-            <li sx={styles.nav.li}>
+        <nav>
+          <ul>
+            <li>
               <NavLink to="/#top">Home</NavLink>
             </li>
-            <li sx={styles.nav.li}>
+            <li>
               <NavLink href="/#what-we-do">What We Do</NavLink>
             </li>
-            <li sx={styles.nav.li}>
+            <li>
               <NavLink href="/#our-work">Our Work</NavLink>
             </li>
-            <li sx={styles.nav.li}>
+            <li>
               <NavLink href="/#contact-us">Contact Us</NavLink>
             </li>
           </ul>

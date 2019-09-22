@@ -51,10 +51,30 @@ export default {
   },
   styles: {
     Container: {
-      variant: 'styles.container',
+      variant: 'styles.contain',
     },
     Header: {
       bg: 'backgroundLight',
+      nav: {
+        width: '100%',
+        maxWidth: 735,
+        height: 48,
+        ul: {
+          display: 'flex',
+          flexDirection: 'row',
+          p: 0,
+          m: 0,
+          width: '100%',
+          height: '100%',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          li: {
+            listStyle: 'none',
+            display: 'inline-block',
+            textAlign: 'center',
+          },
+        },
+      },
     },
     Footer: {
       bg: 'backgroundLight',
@@ -72,11 +92,18 @@ export default {
       height: 'auto',
     },
     h1: {
+      mt: 0,
       fontFamily: `heading`,
       fontWeight: `heading`,
-      fontSize: 8,
+      // fontSize: 8,
+      // letterSpacing: 0.08,
+      // lineHeight: 1.1,
+
+      // NOTE The following styles are to make text match size of mockup
+      //      due to Comfortaa mismatch
+      fontSize: 52.5,
       letterSpacing: 0.08,
-      lineHeight: 1.1,
+      lineHeight: 1.5,
     },
     h2: {
       fontFamily: `heading`,
@@ -165,7 +192,7 @@ export default {
       },
     },
 
-    container: {
+    contain: {
       mx: 'auto',
       width: '100%',
       maxWidth: 1280,

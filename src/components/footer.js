@@ -3,7 +3,7 @@ import { Footer as ThemeFooter, jsx, Styled, Box } from 'theme-ui'
 
 const Footer = () => (
   <ThemeFooter>
-    <Box sx={{ variant: 'styles.container' }}>
+    <Box sx={{ variant: 'styles.contain' }}>
       <Styled.h3 sx={{ color: 'soft', m: 0 }}>Where To Find Us</Styled.h3>
 
       <Box sx={{ variant: 'styles.gridContainer', my: 30 }}>

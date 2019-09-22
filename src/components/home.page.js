@@ -16,17 +16,7 @@ const RawHtml = ({ data }) => {
       {/*<!-- Removed the <article> -->*/}
       {/*<!-- It is redundant, adds no value -->*/}
       {/*<!-- If poorly scoped, can create noise -->*/}
-      <Box
-        className="hero"
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: `repeat(12, 1fr); `,
-          gridColumnGap: '29px',
-          gridRowGap: 0,
-          maxWidth: '1280px',
-          mx: 'auto',
-        }}
-      >
+      <Box sx={{ variant: 'styles.gridContainer', mt: 78 }}>
         <Box sx={{ gridArea: `1 / 1 / 2 / 7` }} className="hero-content">
           <Styled.h1>{site.headline}</Styled.h1>
           <Button sx={{ variant: 'buttons.primary' }}>Estimate Project</Button>
