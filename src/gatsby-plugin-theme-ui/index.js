@@ -58,7 +58,8 @@ export default {
     },
     Footer: {
       bg: 'backgroundLight',
-      py: 52,
+      pt: 52,
+      pb: 57,
     },
     a: {
       color: 'primary',
@@ -163,6 +164,7 @@ export default {
         color: 'primary',
       },
     },
+
     container: {
       mx: 'auto',
       width: '100%',
@@ -170,8 +172,15 @@ export default {
       px: 80,
       py: 0,
     },
+    gridContainer: {
+      display: 'grid',
+      gridTemplateColumns: `repeat(12, 1fr); `,
+      gridColumnGap: '29px',
+      gridRowGap: 0,
+      mx: 'auto',
+    },
   },
-  // TODO: setup proper variants like https://theme-ui.com/guides/variants
+
   text: {
     dim: {
       color: 'muted',
