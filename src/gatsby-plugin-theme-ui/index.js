@@ -98,6 +98,10 @@ export default {
       letterSpacing: 1.2,
       lineHeight: 1.5,
     },
+    h6: {
+      variant: 'text.footerDim',
+      mb: 2,
+    },
     p: {
       fontFamily: `body`,
       fontWeight: `body`,
@@ -185,6 +189,15 @@ export default {
       fontSize: 0,
       lineHeight: 1.25,
       letterSpacing: 0.8,
+    },
+    footerDim: {
+      fontFamily: `body`,
+      fontWeight: 'normal',
+      fontSize: 1,
+      letterSpacing: 0.9,
+      lineHeight: 1.1,
+      color: 'muted',
+      my: 0,
     },
   },
   buttons: {

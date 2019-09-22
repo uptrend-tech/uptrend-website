@@ -30,7 +30,11 @@ const Header = () => {
           {/*<!-- Removed the title attribute -->*/}
           {/*<!-- It is an anti-pattern -->*/}
           <Link to="/#top">
-            <img src={logo} alt="Uptrend Logo" sx={{ height: 48 }} />
+            <img
+              src={logo}
+              alt="Uptrend Logo"
+              sx={{ height: 48, display: 'block' }}
+            />
           </Link>
         </Box>
 
@@ -42,6 +46,7 @@ const Header = () => {
           sx={{
             width: '100%',
             maxWidth: 735,
+            height: 48,
           }}
         >
           <ul
