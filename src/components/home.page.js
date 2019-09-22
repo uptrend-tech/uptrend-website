@@ -18,9 +18,6 @@ const RawHtml = ({ data }) => {
       {/*<!-- If poorly scoped, can create noise -->*/}
       <Box
         className="hero"
-        // as="section"
-        data-name={name}
-        // data-name="hero"
         sx={{
           display: 'grid',
           gridTemplateColumns: `repeat(12, 1fr); `,
