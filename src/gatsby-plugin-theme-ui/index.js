@@ -115,9 +115,16 @@ export default {
     h3: {
       fontFamily: `heading`,
       fontWeight: 'bold',
-      fontSize: 4,
-      letterSpacing: 0.5,
-      lineHeight: 1.5,
+      color: 'soft',
+      // fontSize: 4,
+      // letterSpacing: 0.5,
+      // lineHeight: 1.5,
+
+      // NOTE The following styles are to make text match size of mockup
+      //      due to Comfortaa mismatch
+      fontSize: 22,
+      letterSpacing: 0,
+      lineHeight: 1.95,
     },
     h4: {
       fontFamily: `body`,

@@ -17,27 +17,39 @@ const RawHtml = ({ data }) => {
       {/*<!-- It is redundant, adds no value -->*/}
       {/*<!-- If poorly scoped, can create noise -->*/}
       <Box sx={{ variant: 'styles.gridContainer', mt: 78 }}>
-        <Box sx={{ gridArea: `1 / 1 / 2 / 7` }} className="hero-content">
+        <Box sx={{ gridArea: `1 / 1 / 2 / 7` }}>
           <Styled.h1>{site.headline}</Styled.h1>
           <Button sx={{ variant: 'buttons.primary' }}>Estimate Project</Button>
         </Box>
-        <Box sx={{ gridArea: `1 / 6 / 2 / 13` }} className="hero-image">
+        <Box sx={{ gridArea: `1 / 6 / 2 / 13` }}>
           <Img
             fluid={data.heroImage.childImageSharp.fluid}
             alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
           />
         </Box>
       </Box>
-      <Styled.hr />
-      <section>
-        <Styled.h3>{`We've Built Solutions For`}</Styled.h3>
-        <div className="built-for-logos">
-          <div className="built-for-logo-image">P&G</div>
-          <div className="built-for-logo-image">BlackBerry</div>
-          <div className="built-for-logo-image">CareCar</div>
-          <div className="built-for-logo-image">Activision</div>
-        </div>
-      </section>
+
+      <Box sx={{ variant: 'styles.gridContainer', mb: 80 }}>
+        <hr
+          sx={{
+            border: 0,
+            borderTop: '1px solid',
+            borderColor: 'seperator',
+            gridArea: `1 / 2 / 2 / 12`,
+            mx: 0,
+            mt: 38,
+            mb: 66,
+          }}
+        />
+        <Styled.h3
+          sx={{ gridArea: `2 / 2 / 3 / 4`, m: 0 }}
+        >{`We've Built Solutions For`}</Styled.h3>
+        <Box sx={{ gridArea: `2 / 4 / 3 / 6` }}>P&G</Box>
+        <Box sx={{ gridArea: `2 / 6 / 3 / 8` }}>BlackBerry</Box>
+        <Box sx={{ gridArea: `2 / 8 / 3 / 10` }}>CareCar</Box>
+        <Box sx={{ gridArea: `2 / 10 / 3 / 12` }}>Activision</Box>
+      </Box>
+
       {/*<!-- Not sure <section> adds value here -->*/}
       {/*<!-- Leaving as it does not add SR noise -->*/}
       <section>

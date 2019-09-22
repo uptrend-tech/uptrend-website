@@ -1,15 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { Global } from '@emotion/core'
-import {
-  Main,
-  Layout as ThemeLayout,
-  Container,
-  jsx,
-  css,
-  Box,
-  Flex,
-} from 'theme-ui'
+import { Main, Layout as ThemeLayout, Container, jsx, css } from 'theme-ui'
 import 'typeface-comfortaa'
 import '../fonts/avenir-lt-std.css'
 
@@ -17,11 +9,7 @@ import '../fonts/avenir-lt-std.css'
 import Header from './header'
 import Footer from './footer'
 
-import GridSection from './grid-section'
-
 const Layout = ({ children }) => {
-  const headingStyles = {}
-
   return (
     <ThemeLayout>
       <Global
@@ -51,7 +39,6 @@ const Layout = ({ children }) => {
             position: `relative`,
             overflowX: `hidden`,
           },
-          ...headingStyles,
         })}
       />
       <Header />

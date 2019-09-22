@@ -1,1 +1,6 @@
-{"extends": "./node_modules/kcd-scripts/eslint.js"}
+{
+  "extends": "./node_modules/kcd-scripts/eslint.js",
+  "rules": {
+    "react/prop-types": 0
+  }
+}
