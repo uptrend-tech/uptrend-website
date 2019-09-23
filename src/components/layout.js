@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import React from 'react'
 import { Global } from '@emotion/core'
-import { Main, Layout as ThemeLayout, Container, jsx, css } from 'theme-ui'
-import 'typeface-comfortaa'
+import { Main, Layout as ThemeLayout, jsx, css } from 'theme-ui'
 import '../fonts/avenir-lt-std.css'
+import '../fonts/comfortaa-v2.css'
 
 // import SEO from './seo'
 import Header from './header'

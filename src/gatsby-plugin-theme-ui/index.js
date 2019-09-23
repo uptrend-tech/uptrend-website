@@ -33,7 +33,7 @@ export default {
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
-    heading: `"Comfortaa", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
+    heading: `"ComfortaaV2", "CCComfortaa", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
     monospace: 'Menlo, monospace',
   },
   fontSizes: [16, 18, 20, 24, 28, 32, 36, 48, 60],
@@ -95,15 +95,10 @@ export default {
       mt: 0,
       fontFamily: `heading`,
       fontWeight: `heading`,
-      // fontSize: 8,
-      // letterSpacing: 0.08,
-      // lineHeight: 1.1,
-
-      // NOTE The following styles are to make text match size of mockup
-      //      due to Comfortaa mismatch
-      fontSize: 52.5,
+      color: 'soft',
+      fontSize: 8,
       letterSpacing: 0.08,
-      lineHeight: 1.5,
+      lineHeight: 1.3,
     },
     h2: {
       fontFamily: `heading`,
@@ -116,15 +111,9 @@ export default {
       fontFamily: `heading`,
       fontWeight: 'bold',
       color: 'soft',
-      // fontSize: 4,
-      // letterSpacing: 0.5,
-      // lineHeight: 1.5,
-
-      // NOTE The following styles are to make text match size of mockup
-      //      due to Comfortaa mismatch
-      fontSize: 22,
-      letterSpacing: 0,
-      lineHeight: 1.95,
+      fontSize: 4,
+      letterSpacing: 0.5,
+      lineHeight: 1.5,
     },
     h4: {
       fontFamily: `body`,
