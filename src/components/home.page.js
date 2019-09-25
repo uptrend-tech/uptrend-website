@@ -6,6 +6,10 @@ import Img from 'gatsby-image'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import whatWeDoFullProductDelivery from '../images/what-we-do--full-product-delivery.svg'
 import whatWeDoPrototyping from '../images/what-we-do--prototyping.svg'
+import logoActivision from '../images/logo--activision.svg'
+import logoBlackberry from '../images/logo--blackberry.svg'
+import logoCarecar from '../images/logo--carecar.svg'
+import logoPg from '../images/logo--pg.svg'
 import Button from './button'
 
 const RawHtml = ({ data }) => {
@@ -35,26 +39,28 @@ const RawHtml = ({ data }) => {
         </Box>
       </Box>
 
-      <Box sx={{ variant: 'styles.contain' }}>
-        <Box sx={{ variant: 'styles.gridContainer', mb: 80 }}>
-          <hr
-            sx={{
-              border: 0,
-              borderTop: '1px solid',
-              borderColor: 'seperator',
-              gridArea: `1 / 2 / 2 / 12`,
-              mx: 0,
-              mt: 38,
-              mb: 66,
-            }}
-          />
+      <Box
+        sx={{
+          variant: 'styles.contain',
+        }}
+      >
+        <Box sx={{ variant: 'styles.weveBuiltSolutionsFor' }}>
+          <Styled.hr sx={{}} />
           <Styled.h3
             sx={{ gridArea: `2 / 2 / 3 / 4`, m: 0 }}
           >{`We've Built Solutions For`}</Styled.h3>
-          <Box sx={{ gridArea: `2 / 4 / 3 / 6` }}>P&G</Box>
-          <Box sx={{ gridArea: `2 / 6 / 3 / 8` }}>BlackBerry</Box>
-          <Box sx={{ gridArea: `2 / 8 / 3 / 10` }}>CareCar</Box>
-          <Box sx={{ gridArea: `2 / 10 / 3 / 12` }}>Activision</Box>
+          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
+            <img src={logoPg} />
+          </Flex>
+          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
+            <img src={logoBlackberry} />
+          </Flex>
+          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
+            <img src={logoCarecar} />
+          </Flex>
+          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
+            <img src={logoActivision} />
+          </Flex>
         </Box>
       </Box>
 

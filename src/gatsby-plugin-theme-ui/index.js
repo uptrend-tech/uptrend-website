@@ -211,6 +211,21 @@ export default {
       bg: 'backgroundLight',
     },
 
+    weveBuiltSolutionsFor: {
+      variant: 'styles.gridContainer',
+      mb: 80,
+      hr: {
+        gridArea: `1 / 2 / 2 / 12`,
+        mx: 0,
+        mt: 38,
+        mb: 66,
+      },
+    },
+    weveBuiltSolutionsForLogo: {
+      gridArea: `2 / auto / span 1 / span 2`,
+      justifyContent: 'center',
+    },
+
     whatWeDoItem: {
       borderRadius: 5,
       bg: 'backgroundDark',
