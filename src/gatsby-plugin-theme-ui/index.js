@@ -165,7 +165,6 @@ export default {
       borderBottomWidth: '1px',
     },
     hr: {
-      border: 0,
       borderBottom: '1px solid',
       borderColor: 'seperator',
     },
@@ -210,6 +209,52 @@ export default {
       margin: 0,
       padding: 0,
       bg: 'backgroundLight',
+    },
+
+    whatWeDoItem: {
+      borderRadius: 5,
+      bg: 'backgroundDark',
+      px: 40,
+      pt: 63,
+      pb: 24,
+    },
+    whatWeDoItemIcon: {
+      flex: 0,
+      minWidth: 106,
+      mr: 40,
+      img: {
+        width: 106,
+      },
+    },
+    whatWeDoItemCopy: {
+      flexDirection: 'column',
+      flex: 1,
+      h3: {
+        mt: 0,
+        mb: 14,
+      },
+      p: {
+        height: 142,
+        m: 0,
+      },
+      hr: { width: 133, m: 0 },
+      ul: {
+        listStyle: 'none',
+        display: 'block',
+        textAlign: 'left',
+        m: 0,
+        p: 0,
+        li: {
+          p: {
+            variant: 'text.dim',
+            mt: 30,
+            mb: 0,
+            height: 48,
+            lineHeight: 1.33,
+            letterSpacing: 0.9,
+          },
+        },
+      },
     },
   },
 

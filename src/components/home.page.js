@@ -4,6 +4,8 @@ import { jsx, Styled, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-site-metadata'
+import whatWeDoFullProductDelivery from '../images/what-we-do--full-product-delivery.svg'
+import whatWeDoPrototyping from '../images/what-we-do--prototyping.svg'
 import Button from './button'
 
 const RawHtml = ({ data }) => {
@@ -75,62 +77,66 @@ const RawHtml = ({ data }) => {
 
               <Flex
                 sx={{
+                  variant: 'styles.whatWeDoItem',
                   gridArea: `2 / 1 / span 1 / span 6`,
-                  borderRadius: 5,
-                  bg: 'backgroundDark',
                 }}
               >
-                <div>+icon+</div>
-                <Styled.h3>Product Prototyping</Styled.h3>
-                <Styled.p>
-                  Sometimes you need a working example to prove an idea can
-                  actually work, or get a product in front of users. We can help
-                  you prototype quickly, without the time and expense of
-                  production-grade software.
-                </Styled.p>
-                <Styled.hr />
-                <Styled.ul>
-                  <Styled.li>
-                    <Styled.p sx={{ variant: 'text.dim' }}>
-                      Quickly develop functional proof of concept to validate an
-                      idea
-                    </Styled.p>
-                  </Styled.li>
-                  <Styled.li>
-                    <Styled.p sx={{ variant: 'text.dim' }}>
-                      Start testing your product sooner
-                    </Styled.p>
-                  </Styled.li>
-                </Styled.ul>
+                <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
+                  <img src={whatWeDoPrototyping} />
+                </Flex>
+                <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
+                  <Styled.h3>Product Prototyping</Styled.h3>
+                  <Styled.p>
+                    Sometimes you need a working example to prove an idea can
+                    actually work, or get a product in front of users. We can
+                    help you prototype quickly, without the time and expense of
+                    production-grade software.
+                  </Styled.p>
+                  <Styled.hr />
+                  <Styled.ul>
+                    <Styled.li>
+                      <Styled.p>
+                        Quickly develop functional proof of concept to validate
+                        an idea
+                      </Styled.p>
+                    </Styled.li>
+                    <Styled.li>
+                      <Styled.p>Start testing your product sooner</Styled.p>
+                    </Styled.li>
+                  </Styled.ul>
+                </Flex>
               </Flex>
 
               <Flex
                 sx={{
+                  variant: 'styles.whatWeDoItem',
                   gridArea: `2 / 7 / span 1 / span 6`,
-                  borderRadius: 5,
-                  bg: 'backgroundDark',
                 }}
               >
-                <div>+icon+</div>
-                <Styled.h3>Full Product Delivery</Styled.h3>
-                <Styled.p>
-                  By understanding your needs, designing deliberately, and
-                  communicating openly through the whole process, we are able to
-                  deliver products your users will love.
-                </Styled.p>
-                <Styled.hr />
-                <ul>
-                  <li>
-                    <Styled.p sx={{ variant: 'text.dim' }}>
-                      Turn your need or idea into production-grate software
-                    </Styled.p>
-                  </li>
-                  <li>
-                    <Styled.p sx={{ variant: 'text.dim' }}>
-                      We’ll help you maintain and evolve your product
-                    </Styled.p>
-                  </li>
-                </ul>
+                <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
+                  <img src={whatWeDoFullProductDelivery} />
+                </Flex>
+                <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
+                  <Styled.h3>Full Product Delivery</Styled.h3>
+                  <Styled.p>
+                    By understanding your needs, designing deliberately, and
+                    communicating openly through the whole process, we are able
+                    to deliver products your users will love.
+                  </Styled.p>
+                  <Styled.hr />
+                  <Styled.ul>
+                    <Styled.li>
+                      <Styled.p>
+                        Turn your need or idea into production-grate software
+                      </Styled.p>
+                    </Styled.li>
+                    <Styled.li>
+                      <Styled.p>
+                        We’ll help you maintain and evolve your product
+                      </Styled.p>
+                    </Styled.li>
+                  </Styled.ul>
+                </Flex>
               </Flex>
             </Box>
           </Box>
