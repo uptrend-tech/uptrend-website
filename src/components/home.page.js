@@ -10,6 +10,10 @@ import logoActivision from '../images/logo--activision.svg'
 import logoBlackberry from '../images/logo--blackberry.svg'
 import logoCarecar from '../images/logo--carecar.svg'
 import logoPg from '../images/logo--pg.svg'
+import ourProcessDeliver from '../images/our-process--deliver.svg'
+import ourProcessDesign from '../images/our-process--design.svg'
+import ourProcessDevelop from '../images/our-process--develop.svg'
+import ourProcessDiscover from '../images/our-process--discover.svg'
 import Button from './button'
 
 const RawHtml = ({ data }) => {
@@ -153,15 +157,17 @@ const RawHtml = ({ data }) => {
       {/*<!-- Leaving as it does not add SR noise -->*/}
       <section>
         <Box sx={{ variant: 'styles.contain' }}>
-          <Box sx={{ variant: 'styles.gridContainer', mb: 80 }}>
-            <Styled.h2>Our Process</Styled.h2>
-            <Styled.p>
-              Creating intuitive, production-prade software is a major
-              undertaking, but our process keeps you involved and up to speed as
-              we build the solution that best meets your needs.
-            </Styled.p>
+          <Box sx={{ variant: 'styles.ourProcess' }}>
+            <Box sx={{ variant: 'styles.ourProcessCopy' }}>
+              <Styled.h2 id="our-process">Our Process</Styled.h2>
+              <Styled.p>
+                Creating intuitive, production-grade software is a major
+                undertaking, but our process keeps you involved and up to speed
+                as we build the solution that best meets your needs.
+              </Styled.p>
+            </Box>
 
-            <Styled.ol>
+            <Styled.ol sx={{ variant: 'styles.ourProcessSteps' }}>
               {[
                 {
                   name: '(1) Discover',
@@ -170,6 +176,7 @@ const RawHtml = ({ data }) => {
                     'Investigate the solution space.',
                     'Discuss problems and possibilities.',
                   ],
+                  icon: ourProcessDiscover,
                 },
                 {
                   name: '(2) Design',
@@ -178,6 +185,7 @@ const RawHtml = ({ data }) => {
                     'Validate decisions.',
                     'Define concrete requirements.',
                   ],
+                  icon: ourProcessDesign,
                 },
                 {
                   name: '(3) Develop',
@@ -186,6 +194,7 @@ const RawHtml = ({ data }) => {
                     'Ask questions.',
                     'Communicate progress.',
                   ],
+                  icon: ourProcessDevelop,
                 },
                 {
                   name: '(4) Deliver',
@@ -194,21 +203,37 @@ const RawHtml = ({ data }) => {
                     'Incorporate feedback.',
                     'Deploy.',
                   ],
+                  icon: ourProcessDeliver,
                 },
               ].map(step => (
-                <Styled.li key={step.name}>
-                  <Styled.h3>{step.name}</Styled.h3>
-                  <Styled.ul>
-                    {step.details.map(text => (
-                      <Styled.li key={text}>
-                        <Styled.p sx={{ variant: 'text.tight' }}>
-                          {text}
-                        </Styled.p>
-                      </Styled.li>
-                    ))}
-                  </Styled.ul>
-
-                  <div>+icon+</div>
+                <Styled.li
+                  key={step.name}
+                  sx={{ variant: 'styles.ourProcessStepsItem' }}
+                >
+                  <Flex>
+                    <Box sx={{ flex: 1 }}>
+                      <Styled.h3>{step.name}</Styled.h3>
+                      <Styled.ul>
+                        {step.details.map(text => (
+                          <Styled.li key={text}>
+                            <Styled.p sx={{ variant: 'text.tight' }}>
+                              {text}
+                            </Styled.p>
+                          </Styled.li>
+                        ))}
+                      </Styled.ul>
+                    </Box>
+                    <Flex
+                      sx={{
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        width: 100,
+                        pt: '6px',
+                      }}
+                    >
+                      <img src={step.icon} sx={{ height: 100, ml: 36 }} />
+                    </Flex>
+                  </Flex>
                 </Styled.li>
               ))}
             </Styled.ol>
