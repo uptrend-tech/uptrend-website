@@ -230,8 +230,7 @@ export default {
       borderRadius: 5,
       bg: 'backgroundDark',
       px: 40,
-      pt: 63,
-      pb: 24,
+      py: 24,
     },
     whatWeDoItemIcon: {
       flex: 0,
@@ -245,7 +244,7 @@ export default {
       flexDirection: 'column',
       flex: 1,
       h3: {
-        mt: 0,
+        mt: 39,
         mb: 14,
       },
       p: {
