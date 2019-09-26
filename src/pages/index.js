@@ -23,5 +23,21 @@ export const pageQuery = graphql`
         }
       }
     }
+    ourWorkCareCarImage: file(relativePath: { eq: "our-work--carecar.jpg" }) {
+      childImageSharp {
+        fluid(maxHeight: 237) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+    ourWorkTunelinksImage: file(
+      relativePath: { eq: "our-work--tunelinks.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxHeight: 237) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
   }
 `
