@@ -17,6 +17,16 @@ const darkGreen = `#1c1c1c`
 const brownGray = '#979797'
 
 export default {
+  breakpoints: [
+    '700px',
+    '1000px',
+    '1200px',
+    '1400px',
+    // '40em', // 640px
+    // '65em', // 1040px
+    // '75em', // 1200px
+    // '88em', // 1400px
+  ],
   colors: {
     text: white,
     background: deepBlue,
@@ -92,11 +102,10 @@ export default {
       height: 'auto',
     },
     h1: {
-      mt: 0,
       fontFamily: `heading`,
       fontWeight: `heading`,
       color: 'soft',
-      fontSize: 8,
+      fontSize: [6, 6, 7, 8],
       letterSpacing: 0.08,
       lineHeight: 1.3,
     },
@@ -191,7 +200,7 @@ export default {
       mx: 'auto',
       width: '100%',
       maxWidth: 1440,
-      px: 80,
+      px: [20, 40, 80],
       py: 0,
     },
     gridContainer: {
@@ -408,7 +417,7 @@ export default {
     primary: {
       color: 'text',
       bg: 'primary',
-      width: 300,
+      // width: 300,
       height: 51,
       fontFamily: 'heading',
       fontSize: 2,

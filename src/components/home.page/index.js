@@ -3,7 +3,7 @@ import React from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
-import useSiteMetadata from '@src/hooks/use-site-metadata'
+import Hero from './hero'
 import whatWeDoFullProductDelivery from '@src/images/what-we-do--full-product-delivery.svg'
 import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
 import logoActivision from '@src/images/logo--activision.svg'
@@ -17,29 +17,9 @@ import ourProcessDiscover from '@src/images/our-process--discover.svg'
 import Button from '@src/components/button'
 
 const RawHtml = ({ data }) => {
-  const site = useSiteMetadata()
-
   return (
     <>
-      {/*<!-- Removed the <article> -->*/}
-      {/*<!-- It is redundant, adds no value -->*/}
-      {/*<!-- If poorly scoped, can create noise -->*/}
-      <Box sx={{ variant: 'styles.contain' }}>
-        <Box sx={{ variant: 'styles.gridContainer', mt: 78 }}>
-          <Box sx={{ gridArea: `1 / 1 / 2 / 7` }}>
-            <Styled.h1>{site.headline}</Styled.h1>
-            <Button sx={{ variant: 'buttons.primary' }}>
-              Estimate Project
-            </Button>
-          </Box>
-          <Box sx={{ gridArea: `1 / 6 / 2 / 13` }}>
-            <Img
-              fluid={data.heroImage.childImageSharp.fluid}
-              alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
-            />
-          </Box>
-        </Box>
-      </Box>
+      <Hero data={data} />
 
       <Box
         sx={{

@@ -16,6 +16,13 @@ export const pageQuery = graphql`
   query {
     heroImage: file(relativePath: { eq: "hero-image.png" }) {
       childImageSharp {
+        fluid(maxWidth: 624, maxHeight: 393) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+    heroImageShadow: file(relativePath: { eq: "hero-image-shadow.png" }) {
+      childImageSharp {
         fluid(maxWidth: 739, maxHeight: 589) {
           ...GatsbyImageSharpFluid_noBase64
         }

@@ -14,7 +14,8 @@ module.exports = {
     title: `Uptrend - Software Design & Development Services`,
     titleAlt: `Software Design & Development Agency - Uptrend`,
     description: `Top talent designers and engineers. Web & mobile development. Human-centered design and technology.`,
-    headline: `Users expect beautiful, intuitive products and we help you design and develop them.`,
+    // headline: `Users expect beautiful, intuitive products and we help you design and develop them.`,
+    headline: `We help our clients build beautiful, intuitive digital products.`,
   },
   plugins: [
     'gatsby-plugin-theme-ui',
