@@ -27,5 +27,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@src': 'src',
+        },
+        extensions: ['js'],
+      },
+    },
   ],
 }

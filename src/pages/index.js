@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Main, Box, Flex, jsx, Styled } from 'theme-ui'
-import Layout from '../components/layout'
-// import Hero from '../components/hero'
-// import GridSection from '../components/grid-section'
-import HomePage from '../components/home.page'
+
+import Layout from '@src/components/layout'
+import HomePage from '@src/components/home.page'
 
 const Index = props => (
   <Layout>
