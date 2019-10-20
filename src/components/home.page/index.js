@@ -3,7 +3,6 @@ import React from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
-import Hero from './hero'
 import whatWeDoFullProductDelivery from '@src/images/what-we-do--full-product-delivery.svg'
 import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
 import logoActivision from '@src/images/logo--activision.svg'
@@ -14,37 +13,15 @@ import ourProcessDeliver from '@src/images/our-process--deliver.svg'
 import ourProcessDesign from '@src/images/our-process--design.svg'
 import ourProcessDevelop from '@src/images/our-process--develop.svg'
 import ourProcessDiscover from '@src/images/our-process--discover.svg'
-import Button from '@src/components/button'
+// import Button from '@src/components/button'
+import Hero from './hero'
+import ClientShoutout from './client-shoutout'
 
 const RawHtml = ({ data }) => {
   return (
     <>
       <Hero data={data} />
-
-      <Box
-        sx={{
-          variant: 'styles.contain',
-        }}
-      >
-        <Box sx={{ variant: 'styles.weveBuiltSolutionsFor' }}>
-          <Styled.hr sx={{}} />
-          <Styled.h3
-            sx={{ gridArea: `2 / 2 / 3 / 4`, m: 0 }}
-          >{`We've Built Solutions For`}</Styled.h3>
-          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
-            <img src={logoPg} />
-          </Flex>
-          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
-            <img src={logoBlackberry} />
-          </Flex>
-          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
-            <img src={logoCarecar} />
-          </Flex>
-          <Flex sx={{ variant: 'styles.weveBuiltSolutionsForLogo' }}>
-            <img src={logoActivision} />
-          </Flex>
-        </Box>
-      </Box>
+      <ClientShoutout />
 
       {/*<!-- Not sure <section> adds value here -->*/}
       {/*<!-- Leaving as it does not add SR noise -->*/}
