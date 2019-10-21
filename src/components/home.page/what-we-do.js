@@ -73,6 +73,15 @@ const WhatWeDoItem = ({}) => {
   )
 }
 
+const gapSmall = '15.7px'
+const gapSmallNeg = '-15.7px'
+const gapLarge = '29px'
+const gapLargeNeg = '-29px'
+
+const copyCellMarginStyles = {
+  ml: [gapSmallNeg, gapSmallNeg, gapLargeNeg],
+  mr: [gapSmall, gapSmall, gapLarge],
+}
 const WhatWeDo = () => {
   return (
     <Box sx={{ variant: 'styles.lightSection' }}>
@@ -103,8 +112,69 @@ const WhatWeDo = () => {
             /* pb: [40, 40, 40, 40, 67], */
             /* textAlign: ['center', 'center', 'left'], */
             /* alignItems: 'center', */
+            '&&': {
+              'h3,p,hr,ul': {
+                ...copyCellMarginStyles,
+                gridArea: [
+                  `2 / 1 / span 1 / span 4`,
+                  `2 / 1 / span 1 / span 4`,
+                  `2 / 1 / span 1 / span 3`,
+                  `2 / 1 / span 1 / span 3`,
+                  `1 / 2 / span 1 / span 2`,
+                ],
+              },
+              h3: {
+                gridRowStart: [2, 2, 2, 2, 1],
+                mt: 39,
+                mb: 14,
+              },
+              'h3:first-child': {
+                gridColumnStart: [2, 2, 2, 2, 4],
+              },
+              p: {
+                gridRowStart: [3, 3, 3, 3, 2],
+                height: 142,
+                my: 0,
+              },
+
+              hr: {
+                gridRowStart: [4, 4, 4, 4, 3],
+                width: 133,
+                m: 0,
+              },
+              ul: {
+                gridRowStart: [5, 5, 5, 5, 4],
+                listStyle: 'none',
+                display: 'block',
+                textAlign: 'left',
+                m: 0,
+                p: 0,
+                li: {
+                  p: {
+                    variant: 'text.dim',
+                    mt: 30,
+                    mb: 0,
+                    height: 48,
+                    lineHeight: 1.33,
+                    letterSpacing: 0.9,
+                  },
+                },
+              },
+            },
           }}
         >
+          <Box
+            sx={{
+              gridArea: [
+                `1 / 1 / 2 / 12`,
+                `1 / 1 / 2 / 12`,
+                `1 / 1 / 2 / 12`,
+                `1 / 1 / span 4 / span 3`,
+              ],
+              borderRadius: 5,
+              bg: 'backgroundDark',
+            }}
+          />
           <Flex
             sx={{
               gridArea: [
@@ -115,71 +185,24 @@ const WhatWeDo = () => {
                 `1 / 1 / span 4 / span 1`,
               ],
               justifyContent: 'center',
+              flex: 0,
+              minWidth: 106,
+              /* mr: 40, */
+              img: {
+                width: 106,
+              },
             }}
           >
-            <Flex
-              sx={{
-                flex: 0,
-                minWidth: 106,
-                mr: 40,
-                img: {
-                  width: 106,
-                },
-              }}
-            >
-              <img src={whatWeDoPrototyping} />
-            </Flex>
+            <img src={whatWeDoPrototyping} />
           </Flex>
-          <Styled.h3
-            sx={{
-              gridArea: [
-                `2 / 1 / span 1 / span 4`,
-                `2 / 1 / span 1 / span 4`,
-                `2 / 1 / span 1 / span 3`,
-                `2 / 1 / span 1 / span 3`,
-                `1 / 2 / span 1 / span 2`,
-              ],
-            }}
-          >
-            Product Prototyping
-          </Styled.h3>
-          <Styled.p
-            sx={{
-              gridArea: [
-                `3 / 1 / span 1 / span 4`,
-                `3 / 1 / span 1 / span 4`,
-                `3 / 1 / span 1 / span 3`,
-                `3 / 1 / span 1 / span 3`,
-                `2 / 2 / span 1 / span 2`,
-              ],
-            }}
-          >
+          <Styled.h3>Product Prototyping</Styled.h3>
+          <Styled.p>
             Sometimes you need a working example to prove an idea can actually
             work, or get a product in front of users. We can help you prototype
             quickly, without the time and expense of production-grade software.
           </Styled.p>
-          <Styled.hr
-            sx={{
-              gridArea: [
-                `4 / 1 / span 1 / span 4`,
-                `4 / 1 / span 1 / span 4`,
-                `4 / 1 / span 1 / span 3`,
-                `4 / 1 / span 1 / span 3`,
-                `3 / 2 / span 1 / span 2`,
-              ],
-            }}
-          />
-          <Styled.ul
-            sx={{
-              gridArea: [
-                `5 / 1 / span 1 / span 4`,
-                `5 / 1 / span 1 / span 4`,
-                `5 / 1 / span 1 / span 3`,
-                `5 / 1 / span 1 / span 3`,
-                `4 / 2 / span 1 / span 2`,
-              ],
-            }}
-          >
+          <Styled.hr />
+          <Styled.ul>
             <Styled.li>
               <Styled.p>
                 Quickly develop functional proof of concept to validate an idea
