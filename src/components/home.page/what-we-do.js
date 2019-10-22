@@ -9,22 +9,28 @@ const gridGapSm = '15.7px'
 const gridGapLg = '29px'
 
 const ArtCell = ({ children, left = true }) => {
-  const topGridRow = '1 / span 1'
-  const leftGridRow = '1 / span 4'
+  const iconIsTopGridRow = '1 / span 1'
+  const iconIsLeftGridRow = '1 / span 4'
 
-  const topGridColumn = `${left ? 1 : 7} / span 6`
-  const leftGridColumn = `${left ? 1 : 7} / span 2`
+  const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
+  const iconIsLeftGridColumn = `${left ? 1 : 7} / span 2`
 
   return (
     <Flex
       sx={{
-        gridRow: [topGridRow, topGridRow, topGridRow, topGridRow, leftGridRow],
+        gridRow: [
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsLeftGridRow,
+        ],
         gridColumn: [
-          topGridColumn,
-          topGridColumn,
-          topGridColumn,
-          topGridColumn,
-          leftGridColumn,
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsLeftGridColumn,
         ],
         justifyContent: 'center',
       }}>
@@ -34,24 +40,39 @@ const ArtCell = ({ children, left = true }) => {
 }
 
 const DetailCell = ({ children, detailRow, left = true }) => {
-  const topGridRow = `${detailRow + 1} / span 1`
-  const leftGridRow = `${detailRow} / span 1`
+  const iconIsTopGridRow = `${detailRow + 1} / span 1`
+  const iconIsLeftGridRow = `${detailRow} / span 1`
 
-  const topGridColumn = `${left ? 1 : 7} / span 6`
-  const leftGridColumn = `${left ? 3 : 9} / span 4`
+  const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
+  const iconIsLeftGridColumn = `${left ? 3 : 9} / span 4`
 
   return (
     <Box
       sx={{
-        gridRow: [topGridRow, topGridRow, topGridRow, topGridRow, leftGridRow],
-        gridColumn: [
-          topGridColumn,
-          topGridColumn,
-          topGridColumn,
-          topGridColumn,
-          leftGridColumn,
+        gridRow: [
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsTopGridRow,
+          iconIsLeftGridRow,
         ],
-        ml: [`-${gridGapSm}`, `-${gridGapSm}`, `-${gridGapLg}`],
+        gridColumn: [
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsTopGridColumn,
+          iconIsLeftGridColumn,
+        ],
+        ml: [
+          undefined,
+          undefined,
+          gridGapLg,
+          gridGapLg,
+          /* `-${gridGapSm}`, */
+          /* `-${gridGapSm}`, */
+          /* `-${gridGapLg}` */
+          `-${gridGapLg}`,
+        ],
         mr: [gridGapSm, gridGapSm, gridGapLg],
       }}>
       {children}
@@ -70,6 +91,8 @@ const Art = ({ img, left }) => {
           flex: 0,
           minWidth: 106,
           img: { width: 106 },
+          mt: 40,
+          mb: 24,
         }}>
         <img src={img} />
       </Flex>
@@ -80,7 +103,12 @@ const Art = ({ img, left }) => {
 const Title = ({ children, left }) => {
   return (
     <DetailCell detailRow={1} left={left}>
-      <Styled.h3 sx={{ mt: [32, 32, 32, 32, 63], mb: 14 }}>
+      <Styled.h3
+        sx={{
+          mt: [0, 0, 0, 0, 63],
+          mb: 14,
+          textAlign: ['center', 'center', 'center', 'center', 'left'],
+        }}>
         {children}
       </Styled.h3>
     </DetailCell>
@@ -98,7 +126,15 @@ const Description = ({ children, left }) => {
 const BreakLine = ({ left }) => {
   return (
     <DetailCell detailRow={3} left={left}>
-      <Styled.hr sx={{ width: 133, m: 0 }} />
+      <Styled.hr
+        sx={{
+          m: 0,
+          mx: ['auto', 'auto', 'auto', 'auto', 0],
+          width: 133,
+          borderBottom: '1px solid',
+          borderColor: 'seperator',
+        }}
+      />
     </DetailCell>
   )
 }
@@ -203,7 +239,7 @@ const WhatWeDoGrid = ({ children }) => {
 
 const WhatWeDo = () => {
   return (
-    <Box sx={{ variant: 'styles.lightSection' }}>
+    <Box sx={{ variant: 'styles.lightSection', overflow: 'hidden' }}>
       <Box sx={{ variant: 'styles.contain', pb: 112 }}>
         <Styled.h2
           sx={{
