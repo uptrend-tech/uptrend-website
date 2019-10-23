@@ -9,74 +9,42 @@ const gridGapSm = '15.7px'
 const gridGapLg = '29px'
 
 const gridTemplateAreasMobile = `
-  "art1   art1   art1   art1   art1   art1"
-  "title1 title1 title1 title1 title1 title1"
-  "desc1  desc1  desc1  desc1  desc1  desc1 "
-  "break1 break1 break1 break1 break1 break1"
-  "list1  list1  list1  list1  list1  list1 "
-  "gap    gap    gap    gap    gap    gap"
-  "art2   art2   art2   art2   art2   art2"
-  "title2 title2 title2 title2 title2 title2"
-  "desc2  desc2  desc2  desc2  desc2  desc2 "
-  "break2 break2 break2 break2 break2 break2"
-  "list2  list2  list2  list2  list2  list2";
+  "art1   art1   art1   art1"
+  "title1 title1 title1 title1"
+  "desc1  desc1  desc1  desc1 "
+  ".      break1 break1 ."
+  "list1  list1  list1  list1 "
+  "gap    gap    gap    gap"
+  "art2   art2   art2   art2"
+  "title2 title2 title2 title2"
+  "desc2  desc2  desc2  desc2 "
+  ".      break2 break2 ."
+  "list2  list2  list2  list2";
 `
 
 const gridTemplateAreasTablet = `
   "art1 art1 title1 title1 title1 title1"
   "art1 art1 desc1  desc1  desc1  desc1"
-  "art1 art1 break1 break1 break1 break1"
+  "art1 art1 break1 break1 .      ."
   "art1 art1 list1  list1  list1  list1"
   "gap  gap  gap    gap    gap    gap"
   "art2 art2 title2 title2 title2 title2"
   "art2 art2 desc2  desc2  desc2  desc2"
-  "art2 art2 break2 break2 break2 break2"
+  "art2 art2 break2 break2 .      ."
   "art2 art2 list2  list2  list2  list2";
 `
 
 const gridTemplateAreasWide = `
   "art1 title1 title1 art2 title2 title2"
   "art1 desc1  desc1  art2 desc2  desc2"
-  "art1 break1 break1 art2 break2 break2"
+  "art1 break1 .      art2 break2 ."
   "art1 list1  list1  art2 list2  list2";
 `
 
-const ArtCell = ({ children, gridArea, left = true }) => {
-  // const iconIsTopGridRow = '1 / span 1'
-  // const iconIsLeftGridRow = '1 / span 4'
-  // const iconIsTopGridRowSm = `${left ? 1 : 6} / span 1`
-  // const iconIsLeftGridRowSm = '${left ? 1 : 6}  / span 4'
-
-  // const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
-  // const iconIsLeftGridColumn = `${left ? 1 : 7} / span 2`
-  // const iconIsTopGridColumnSm = `1 / -1`
-  // const iconIsLeftGridColumnSm = `1 / span 1`
-
+const ArtCell = ({ children, left = true }) => {
   return (
     <Flex
       sx={{
-        // gridRow: [
-        //   // iconIsTopGridRow,
-        //   // iconIsTopGridRow,
-        //   // iconIsTopGridRow,
-        //   // iconIsTopGridRow,
-        //   iconIsTopGridRowSm,
-        //   iconIsLeftGridRowSm,
-        //   iconIsLeftGridRowSm,
-        //   iconIsLeftGridRowSm,
-        //   iconIsLeftGridRow,
-        // ],
-        // gridColumn: [
-        //   // iconIsTopGridColumn,
-        //   // iconIsTopGridColumn,
-        //   // iconIsTopGridColumn,
-        //   // iconIsTopGridColumn,
-        //   iconIsTopGridColumnSm,
-        //   iconIsLeftGridColumnSm,
-        //   iconIsLeftGridColumnSm,
-        //   iconIsLeftGridColumnSm,
-        //   iconIsLeftGridColumn,
-        // ],
         justifyContent: 'center',
         gridArea: `art${left ? 1 : 2}`,
       }}>
@@ -85,18 +53,12 @@ const ArtCell = ({ children, gridArea, left = true }) => {
   )
 }
 
-const DetailCell = ({ children, detailRow, gridArea, left = true }) => {
-  // const iconIsTopGridRow = `${detailRow + 1} / span 1`
-  // const iconIsLeftGridRow = `${detailRow} / span 1`
-
-  // const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
-  // const iconIsLeftGridColumn = `${left ? 3 : 9} / span 4`
-
+const DetailCell = ({ children, gridArea, left = true }) => {
   return (
     <Box
       sx={{
-        ml: [undefined, undefined, gridGapLg, gridGapLg, `-${gridGapLg}`],
-        mr: [gridGapSm, gridGapSm, gridGapLg],
+        ml: [32, `-${gridGapLg}`],
+        mr: [32, 40],
         gridArea: `${gridArea}${left ? 1 : 2}`,
       }}>
       {children}
@@ -105,6 +67,7 @@ const DetailCell = ({ children, detailRow, gridArea, left = true }) => {
 }
 
 const Art = ({ img, left }) => {
+  const responsiveWidths = [87, 106]
   return (
     <ArtCell left={left}>
       <Flex
@@ -113,10 +76,10 @@ const Art = ({ img, left }) => {
           alignItems: 'center',
           justifyContent: 'center',
           flex: 0,
-          minWidth: 106,
-          img: { width: 106 },
+          minWidth: responsiveWidths,
+          img: { width: responsiveWidths },
           mt: 40,
-          mb: 24,
+          mb: [0, 24],
         }}>
         <img src={img} />
       </Flex>
@@ -126,21 +89,14 @@ const Art = ({ img, left }) => {
 
 const Title = ({ children, left }) => {
   return (
-    <DetailCell detailRow={1} left={left} gridArea="title">
+    <DetailCell left={left} gridArea="title">
       <Styled.h3
         sx={{
           mt: [32, 32, 32, 32, 63],
           mb: 14,
-          textAlign: [
-            'center',
-            // 'center',
-            // 'center',
-            // 'center',
-            'left',
-            'left',
-            'left',
-            'left',
-          ],
+          textAlign: ['center', 'left'],
+          lineHeight: [1.25, 1.5],
+          fontSize: [3, 4],
         }}>
         {children}
       </Styled.h3>
@@ -150,26 +106,28 @@ const Title = ({ children, left }) => {
 
 const Description = ({ children, left }) => {
   return (
-    <DetailCell detailRow={2} left={left} gridArea="desc">
-      <Styled.p sx={{ m: 0, mb: [39.5, 39.5, 24] }}>{children}</Styled.p>
+    <DetailCell left={left} gridArea="desc">
+      <Styled.p
+        sx={{
+          m: 0,
+          mb: [39.5, 27.5],
+          lineHeight: [1.13, 1.28],
+          fontSize: [0, 1],
+        }}>
+        {children}
+      </Styled.p>
     </DetailCell>
   )
 }
 
 const BreakLine = ({ left }) => {
   return (
-    <DetailCell detailRow={3} left={left} gridArea="break">
+    <DetailCell left={left} gridArea="break">
       <Styled.hr
         sx={{
           m: 0,
-          mmx: [
-            'auto',
-            // 'auto',
-            // 'auto',
-            // 'auto',
-            0,
-          ],
-          width: 133,
+          mx: [-32, 0],
+          mb: [32.5, 30],
           borderBottom: '1px solid',
           borderColor: 'seperator',
         }}
@@ -184,10 +142,11 @@ const TalkingPoint = ({ children }) => {
       <Styled.p
         sx={{
           variant: 'text.dim',
-          mt: 30,
-          mb: 0,
-          lineHeight: 1.33,
-          letterSpacing: 0.9,
+          mt: 0,
+          mb: [20, 30],
+          lineHeight: [1.38, 1.33],
+          letterSpacing: [0.8, 0.9],
+          fontSize: [0, 1],
         }}>
         {children}
       </Styled.p>
@@ -197,7 +156,7 @@ const TalkingPoint = ({ children }) => {
 
 const TalkingPointList = ({ children, left }) => {
   return (
-    <DetailCell detailRow={4} left={left} gridArea="list">
+    <DetailCell left={left} gridArea="list">
       <Styled.ul
         sx={{
           listStyle: 'none',
@@ -225,7 +184,7 @@ const WhatWeDoItemGap = () => (
 
 const WhatWeDoItemBackground = ({ left = true }) => {
   const gridAreaMobile = `${left ? 1 : 7} / 1 / span 5 / -1`
-  const gridAreaTablet = `${left ? 1 : 6} / 1 / span 4 / span 6`
+  const gridAreaTablet = `${left ? 1 : 6} / 1 / span 4 / -1`
   const gridAreaWide = `1 / ${left ? 1 : 4} / span 4 / span 3`
 
   return (
@@ -273,15 +232,7 @@ const WhatWeDoGrid = ({ children }) => {
     <Box
       sx={{
         display: 'grid',
-
-        gridTemplateColumns: `repeat(6, 1fr)`,
-        // gridTemplateColumns: [
-        //   `repeat(4, 1fr)`,
-        //   `repeat(6, 1fr)`,
-        //   `repeat(6, 1fr)`,
-        //   `repeat(6, 1fr)`,
-        //   `repeat(12, 1fr)`,
-        // ],
+        gridTemplateColumns: [`repeat(4, 1fr)`, `repeat(6, 1fr)`],
         gridTemplateAreas: [
           gridTemplateAreasMobile,
           gridTemplateAreasTablet,
@@ -290,11 +241,7 @@ const WhatWeDoGrid = ({ children }) => {
           gridTemplateAreasWide,
         ],
         gridRowGap: 0,
-        gridColumnGap: [
-          '15.7px',
-          // '15.7px',
-          '29px',
-        ],
+        gridColumnGap: [gridGapSm, gridGapLg],
         mx: 'auto',
       }}>
       {children}
@@ -305,12 +252,11 @@ const WhatWeDoGrid = ({ children }) => {
 const WhatWeDo = () => {
   return (
     <Box sx={{ variant: 'styles.lightSection', overflow: 'hidden' }}>
-      <Box sx={{ variant: 'styles.contain', pb: 112 }}>
+      <Box sx={{ variant: 'styles.contain', pb: [73, 112] }}>
         <Styled.h2
           sx={{
-            gridArea: `1 / 2 / 2 / 12`,
-            mt: 70,
-            mb: 80,
+            mt: [40, 70],
+            mb: [38, 80],
             textAlign: 'center',
           }}>
           What We Do
@@ -346,78 +292,6 @@ const WhatWeDo = () => {
           />
           <WhatWeDoItemGap />
         </WhatWeDoGrid>
-
-        <Box sx={{ variant: 'styles.gridContainer' }}>
-          <Flex
-            sx={{
-              gridArea: `3 / 1 / span 1 /  -1`,
-              borderBottom: '1px dotted',
-              my: 60,
-            }}
-          />
-
-          <Flex
-            sx={{
-              variant: 'styles.whatWeDoItem',
-              gridArea: `4 / 1 / span 1 / span 6`,
-            }}>
-            <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
-              <img src={whatWeDoPrototyping} />
-            </Flex>
-            <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
-              <Styled.h3>Product Prototyping</Styled.h3>
-              <Styled.p>
-                Sometimes you need a working example to prove an idea can
-                actually work, or get a product in front of users. We can help
-                you prototype quickly, without the time and expense of
-                production-grade software.
-              </Styled.p>
-              <Styled.hr />
-              <Styled.ul>
-                <Styled.li>
-                  <Styled.p>
-                    Quickly develop functional proof of concept to validate an
-                    idea
-                  </Styled.p>
-                </Styled.li>
-                <Styled.li>
-                  <Styled.p>Start testing your product sooner</Styled.p>
-                </Styled.li>
-              </Styled.ul>
-            </Flex>
-          </Flex>
-
-          <Flex
-            sx={{
-              variant: 'styles.whatWeDoItem',
-              gridArea: `4 / 7 / span 1 / span 6`,
-            }}>
-            <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
-              <img src={whatWeDoFullProductDelivery} />
-            </Flex>
-            <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
-              <Styled.h3>Full Product Delivery</Styled.h3>
-              <Styled.p>
-                By understanding your needs, designing deliberately, and
-                communicating openly through the whole process, we are able to
-                deliver products your users will love.
-              </Styled.p>
-              <Styled.hr />
-              <Styled.ul>
-                <Styled.li>
-                  <Styled.p>
-                    Turn your need or idea into production-grate software
-                  </Styled.p>
-                </Styled.li>
-                <Styled.li>
-                  <Styled.p>
-                    We’ll help you maintain and evolve your product
-                  </Styled.p>
-                </Styled.li>
-              </Styled.ul>
-            </Flex>
-          </Flex>
-        </Box>
       </Box>
     </Box>
   )
