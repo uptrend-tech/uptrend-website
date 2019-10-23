@@ -8,72 +8,96 @@ import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
 const gridGapSm = '15.7px'
 const gridGapLg = '29px'
 
-const ArtCell = ({ children, left = true }) => {
-  const iconIsTopGridRow = '1 / span 1'
-  const iconIsLeftGridRow = '1 / span 4'
+const gridTemplateAreasMobile = `
+  "art1   art1   art1   art1   art1   art1"
+  "title1 title1 title1 title1 title1 title1"
+  "desc1  desc1  desc1  desc1  desc1  desc1 "
+  "break1 break1 break1 break1 break1 break1"
+  "list1  list1  list1  list1  list1  list1 "
+  "gap    gap    gap    gap    gap    gap"
+  "art2   art2   art2   art2   art2   art2"
+  "title2 title2 title2 title2 title2 title2"
+  "desc2  desc2  desc2  desc2  desc2  desc2 "
+  "break2 break2 break2 break2 break2 break2"
+  "list2  list2  list2  list2  list2  list2";
+`
 
-  const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
-  const iconIsLeftGridColumn = `${left ? 1 : 7} / span 2`
+const gridTemplateAreasTablet = `
+  "art1 art1 title1 title1 title1 title1"
+  "art1 art1 desc1  desc1  desc1  desc1"
+  "art1 art1 break1 break1 break1 break1"
+  "art1 art1 list1  list1  list1  list1"
+  "gap  gap  gap    gap    gap    gap"
+  "art2 art2 title2 title2 title2 title2"
+  "art2 art2 desc2  desc2  desc2  desc2"
+  "art2 art2 break2 break2 break2 break2"
+  "art2 art2 list2  list2  list2  list2";
+`
+
+const gridTemplateAreasWide = `
+  "art1 title1 title1 art2 title2 title2"
+  "art1 desc1  desc1  art2 desc2  desc2"
+  "art1 break1 break1 art2 break2 break2"
+  "art1 list1  list1  art2 list2  list2";
+`
+
+const ArtCell = ({ children, gridArea, left = true }) => {
+  // const iconIsTopGridRow = '1 / span 1'
+  // const iconIsLeftGridRow = '1 / span 4'
+  // const iconIsTopGridRowSm = `${left ? 1 : 6} / span 1`
+  // const iconIsLeftGridRowSm = '${left ? 1 : 6}  / span 4'
+
+  // const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
+  // const iconIsLeftGridColumn = `${left ? 1 : 7} / span 2`
+  // const iconIsTopGridColumnSm = `1 / -1`
+  // const iconIsLeftGridColumnSm = `1 / span 1`
 
   return (
     <Flex
       sx={{
-        gridRow: [
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsLeftGridRow,
-        ],
-        gridColumn: [
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsLeftGridColumn,
-        ],
+        // gridRow: [
+        //   // iconIsTopGridRow,
+        //   // iconIsTopGridRow,
+        //   // iconIsTopGridRow,
+        //   // iconIsTopGridRow,
+        //   iconIsTopGridRowSm,
+        //   iconIsLeftGridRowSm,
+        //   iconIsLeftGridRowSm,
+        //   iconIsLeftGridRowSm,
+        //   iconIsLeftGridRow,
+        // ],
+        // gridColumn: [
+        //   // iconIsTopGridColumn,
+        //   // iconIsTopGridColumn,
+        //   // iconIsTopGridColumn,
+        //   // iconIsTopGridColumn,
+        //   iconIsTopGridColumnSm,
+        //   iconIsLeftGridColumnSm,
+        //   iconIsLeftGridColumnSm,
+        //   iconIsLeftGridColumnSm,
+        //   iconIsLeftGridColumn,
+        // ],
         justifyContent: 'center',
+        gridArea: `art${left ? 1 : 2}`,
       }}>
       {children}
     </Flex>
   )
 }
 
-const DetailCell = ({ children, detailRow, left = true }) => {
-  const iconIsTopGridRow = `${detailRow + 1} / span 1`
-  const iconIsLeftGridRow = `${detailRow} / span 1`
+const DetailCell = ({ children, detailRow, gridArea, left = true }) => {
+  // const iconIsTopGridRow = `${detailRow + 1} / span 1`
+  // const iconIsLeftGridRow = `${detailRow} / span 1`
 
-  const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
-  const iconIsLeftGridColumn = `${left ? 3 : 9} / span 4`
+  // const iconIsTopGridColumn = `${left ? 1 : 7} / span 6`
+  // const iconIsLeftGridColumn = `${left ? 3 : 9} / span 4`
 
   return (
     <Box
       sx={{
-        gridRow: [
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsTopGridRow,
-          iconIsLeftGridRow,
-        ],
-        gridColumn: [
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsTopGridColumn,
-          iconIsLeftGridColumn,
-        ],
-        ml: [
-          undefined,
-          undefined,
-          gridGapLg,
-          gridGapLg,
-          /* `-${gridGapSm}`, */
-          /* `-${gridGapSm}`, */
-          /* `-${gridGapLg}` */
-          `-${gridGapLg}`,
-        ],
+        ml: [undefined, undefined, gridGapLg, gridGapLg, `-${gridGapLg}`],
         mr: [gridGapSm, gridGapSm, gridGapLg],
+        gridArea: `${gridArea}${left ? 1 : 2}`,
       }}>
       {children}
     </Box>
@@ -102,12 +126,21 @@ const Art = ({ img, left }) => {
 
 const Title = ({ children, left }) => {
   return (
-    <DetailCell detailRow={1} left={left}>
+    <DetailCell detailRow={1} left={left} gridArea="title">
       <Styled.h3
         sx={{
-          mt: [0, 0, 0, 0, 63],
+          mt: [32, 32, 32, 32, 63],
           mb: 14,
-          textAlign: ['center', 'center', 'center', 'center', 'left'],
+          textAlign: [
+            'center',
+            // 'center',
+            // 'center',
+            // 'center',
+            'left',
+            'left',
+            'left',
+            'left',
+          ],
         }}>
         {children}
       </Styled.h3>
@@ -117,7 +150,7 @@ const Title = ({ children, left }) => {
 
 const Description = ({ children, left }) => {
   return (
-    <DetailCell detailRow={2} left={left}>
+    <DetailCell detailRow={2} left={left} gridArea="desc">
       <Styled.p sx={{ m: 0, mb: [39.5, 39.5, 24] }}>{children}</Styled.p>
     </DetailCell>
   )
@@ -125,11 +158,17 @@ const Description = ({ children, left }) => {
 
 const BreakLine = ({ left }) => {
   return (
-    <DetailCell detailRow={3} left={left}>
+    <DetailCell detailRow={3} left={left} gridArea="break">
       <Styled.hr
         sx={{
           m: 0,
-          mx: ['auto', 'auto', 'auto', 'auto', 0],
+          mmx: [
+            'auto',
+            // 'auto',
+            // 'auto',
+            // 'auto',
+            0,
+          ],
           width: 133,
           borderBottom: '1px solid',
           borderColor: 'seperator',
@@ -158,7 +197,7 @@ const TalkingPoint = ({ children }) => {
 
 const TalkingPointList = ({ children, left }) => {
   return (
-    <DetailCell detailRow={4} left={left}>
+    <DetailCell detailRow={4} left={left} gridArea="list">
       <Styled.ul
         sx={{
           listStyle: 'none',
@@ -174,9 +213,20 @@ const TalkingPointList = ({ children, left }) => {
   )
 }
 
+const WhatWeDoItemGap = () => (
+  <Box
+    sx={{
+      display: ['block', 'block', 'block', 'block', 'none'],
+      height: [32, 40, 40, 40, 0],
+      gridArea: 'gap',
+    }}
+  />
+)
+
 const WhatWeDoItemBackground = ({ left = true }) => {
-  const leftArtGridArea = `1 / ${left ? 1 : 7} / span 4 / span 6`
-  const topArtGridArea = `1 / ${left ? 1 : 7} / span 5 / span 6`
+  const gridAreaMobile = `${left ? 1 : 7} / 1 / span 5 / -1`
+  const gridAreaTablet = `${left ? 1 : 6} / 1 / span 4 / span 6`
+  const gridAreaWide = `1 / ${left ? 1 : 4} / span 4 / span 3`
 
   return (
     <Box
@@ -184,11 +234,11 @@ const WhatWeDoItemBackground = ({ left = true }) => {
         borderRadius: 5,
         bg: 'backgroundDark',
         gridArea: [
-          topArtGridArea,
-          topArtGridArea,
-          topArtGridArea,
-          topArtGridArea,
-          leftArtGridArea,
+          gridAreaMobile,
+          gridAreaTablet,
+          gridAreaTablet,
+          gridAreaTablet,
+          gridAreaWide,
         ],
       }}
     />
@@ -223,13 +273,28 @@ const WhatWeDoGrid = ({ children }) => {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: [
-          `repeat(4, 1fr)`,
-          `repeat(4, 1fr)`,
-          `repeat(12, 1fr)`,
+
+        gridTemplateColumns: `repeat(6, 1fr)`,
+        // gridTemplateColumns: [
+        //   `repeat(4, 1fr)`,
+        //   `repeat(6, 1fr)`,
+        //   `repeat(6, 1fr)`,
+        //   `repeat(6, 1fr)`,
+        //   `repeat(12, 1fr)`,
+        // ],
+        gridTemplateAreas: [
+          gridTemplateAreasMobile,
+          gridTemplateAreasTablet,
+          gridTemplateAreasTablet,
+          gridTemplateAreasTablet,
+          gridTemplateAreasWide,
         ],
         gridRowGap: 0,
-        gridColumnGap: ['15.7px', '15.7px', '29px'],
+        gridColumnGap: [
+          '15.7px',
+          // '15.7px',
+          '29px',
+        ],
         mx: 'auto',
       }}>
       {children}
@@ -279,6 +344,7 @@ const WhatWeDo = () => {
             ]}
             left={false}
           />
+          <WhatWeDoItemGap />
         </WhatWeDoGrid>
 
         <Box sx={{ variant: 'styles.gridContainer' }}>
