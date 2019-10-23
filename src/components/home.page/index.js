@@ -3,17 +3,10 @@ import React from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
-// import whatWeDoFullProductDelivery from '@src/images/what-we-do--full-product-delivery.svg'
-// import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
-// import logoActivision from '@src/images/logo--activision.svg'
-// import logoBlackberry from '@src/images/logo--blackberry.svg'
-// import logoCarecar from '@src/images/logo--carecar.svg'
-// import logoPg from '@src/images/logo--pg.svg'
 import ourProcessDeliver from '@src/images/our-process--deliver.svg'
 import ourProcessDesign from '@src/images/our-process--design.svg'
 import ourProcessDevelop from '@src/images/our-process--develop.svg'
 import ourProcessDiscover from '@src/images/our-process--discover.svg'
-// import Button from '@src/components/button'
 import Hero from './hero'
 import ClientShoutout from './client-shoutout'
 import WhatWeDo from './what-we-do'
@@ -85,8 +78,7 @@ const RawHtml = ({ data }) => {
               ].map(step => (
                 <Styled.li
                   key={step.name}
-                  sx={{ variant: 'styles.ourProcessStepsItem' }}
-                >
+                  sx={{ variant: 'styles.ourProcessStepsItem' }}>
                   <Flex>
                     <Box sx={{ flex: 1 }}>
                       <Styled.h3>{step.name}</Styled.h3>
@@ -106,8 +98,7 @@ const RawHtml = ({ data }) => {
                         justifyContent: 'flex-end',
                         width: 100,
                         pt: '6px',
-                      }}
-                    >
+                      }}>
                       <img src={step.icon} sx={{ height: 100, ml: 36 }} />
                     </Flex>
                   </Flex>

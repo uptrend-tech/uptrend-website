@@ -234,52 +234,6 @@ export default {
       gridArea: `2 / auto / span 1 / span 2`,
       justifyContent: 'center',
     },
-
-    oldWhatWeDoItem: {
-      borderRadius: 5,
-      bg: 'backgroundDark',
-      px: 40,
-      py: 24,
-    },
-    oldWhatWeDoItemIcon: {
-      flex: 0,
-      minWidth: 106,
-      mr: 40,
-      img: {
-        width: 106,
-      },
-    },
-    oldWhatWeDoItemCopy: {
-      flexDirection: 'column',
-      flex: 1,
-      h3: {
-        mt: 39,
-        mb: 14,
-      },
-      p: {
-        height: 142,
-        m: 0,
-      },
-      hr: { width: 133, m: 0 },
-      ul: {
-        listStyle: 'none',
-        display: 'block',
-        textAlign: 'left',
-        m: 0,
-        p: 0,
-        li: {
-          p: {
-            variant: 'text.dim',
-            mt: 30,
-            mb: 0,
-            height: 48,
-            lineHeight: 1.33,
-            letterSpacing: 0.9,
-          },
-        },
-      },
-    },
-
     ourProcessCopy: {
       variant: 'styles.gridContainer',
       mb: 45,
