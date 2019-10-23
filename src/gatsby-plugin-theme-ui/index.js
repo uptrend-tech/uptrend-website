@@ -234,62 +234,6 @@ export default {
       gridArea: `2 / auto / span 1 / span 2`,
       justifyContent: 'center',
     },
-    ourProcessCopy: {
-      variant: 'styles.gridContainer',
-      mb: 45,
-      h2: {
-        gridArea: `1 / 1 / span 1 / span 12`,
-        mt: 80,
-        mb: 21,
-      },
-      p: {
-        m: 0,
-        color: 'muted',
-        gridArea: `2 / 1 / span 1 / span 7`,
-        lineHeight: 1.5,
-        letterSpacing: 1.2,
-        fontWeight: 'normal',
-        fontSize: 3,
-      },
-    },
-    ourProcessSteps: {
-      variant: 'styles.gridContainer',
-      listStyle: 'none',
-      textAlign: 'left',
-      m: 0,
-      mb: 63,
-      p: 0,
-      h3: {
-        color: 'primary',
-        mt: 0,
-        mb: '8px',
-      },
-    },
-    ourProcessStepsItem: {
-      gridArea: `auto / auto / span 1 / span 5`,
-      borderRadius: 5,
-      border: '2px solid',
-      borderColor: 'secondary',
-      py: 34,
-      px: 36,
-      mb: 40,
-      ul: {
-        listStyle: 'none',
-        textAlign: 'left',
-        m: 0,
-        mb: '4px',
-        p: 0,
-        li: {
-          p: {
-            variant: 'text.tight',
-            mt: 0,
-            mb: 10,
-            letterSpacing: 1,
-            color: 'soft',
-          },
-        },
-      },
-    },
 
     ourWork: {
       variant: 'styles.contain',
@@ -347,8 +291,8 @@ export default {
     tight: {
       fontSize: 0,
       fontWeight: 800,
-      lineHeight: 1.13,
-      letterSpacing: 1,
+      lineHeight: [1.13],
+      letterSpacing: [1],
     },
     tightDim: {
       color: 'muted',

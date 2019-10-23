@@ -1,15 +1,12 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx, Styled, Box, Flex } from 'theme-ui'
+import { jsx, Styled, Box } from 'theme-ui'
 import Img from 'gatsby-image'
 
-import ourProcessDeliver from '@src/images/our-process--deliver.svg'
-import ourProcessDesign from '@src/images/our-process--design.svg'
-import ourProcessDevelop from '@src/images/our-process--develop.svg'
-import ourProcessDiscover from '@src/images/our-process--discover.svg'
 import Hero from './hero'
 import ClientShoutout from './client-shoutout'
 import WhatWeDo from './what-we-do'
+import OurProcess from './our-process'
 
 const RawHtml = ({ data }) => {
   return (
@@ -23,90 +20,8 @@ const RawHtml = ({ data }) => {
         <WhatWeDo />
       </section>
 
-      {/*<!-- Not sure <section> adds value here -->*/}
-      {/*<!-- Leaving as it does not add SR noise -->*/}
       <section>
-        <Box sx={{ variant: 'styles.contain' }}>
-          <Box sx={{ variant: 'styles.ourProcess' }}>
-            <Box sx={{ variant: 'styles.ourProcessCopy' }}>
-              <Styled.h2 id="our-process">Our Process</Styled.h2>
-              <Styled.p>
-                Creating intuitive, production-grade software is a major
-                undertaking, but our process keeps you involved and up to speed
-                as we build the solution that best meets your needs.
-              </Styled.p>
-            </Box>
-
-            <Styled.ol sx={{ variant: 'styles.ourProcessSteps' }}>
-              {[
-                {
-                  name: '(1) Discover',
-                  details: [
-                    'Listen to your business needs.',
-                    'Investigate the solution space.',
-                    'Discuss problems and possibilities.',
-                  ],
-                  icon: ourProcessDiscover,
-                },
-                {
-                  name: '(2) Design',
-                  details: [
-                    'Utilize research to drive design.',
-                    'Validate decisions.',
-                    'Define concrete requirements.',
-                  ],
-                  icon: ourProcessDesign,
-                },
-                {
-                  name: '(3) Develop',
-                  details: [
-                    'Prioritize work collaboratively.',
-                    'Ask questions.',
-                    'Communicate progress.',
-                  ],
-                  icon: ourProcessDevelop,
-                },
-                {
-                  name: '(4) Deliver',
-                  details: [
-                    'Acceptance test.',
-                    'Incorporate feedback.',
-                    'Deploy.',
-                  ],
-                  icon: ourProcessDeliver,
-                },
-              ].map(step => (
-                <Styled.li
-                  key={step.name}
-                  sx={{ variant: 'styles.ourProcessStepsItem' }}>
-                  <Flex>
-                    <Box sx={{ flex: 1 }}>
-                      <Styled.h3>{step.name}</Styled.h3>
-                      <Styled.ul>
-                        {step.details.map(text => (
-                          <Styled.li key={text}>
-                            <Styled.p sx={{ variant: 'text.tight' }}>
-                              {text}
-                            </Styled.p>
-                          </Styled.li>
-                        ))}
-                      </Styled.ul>
-                    </Box>
-                    <Flex
-                      sx={{
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                        width: 100,
-                        pt: '6px',
-                      }}>
-                      <img src={step.icon} sx={{ height: 100, ml: 36 }} />
-                    </Flex>
-                  </Flex>
-                </Styled.li>
-              ))}
-            </Styled.ol>
-          </Box>
-        </Box>
+        <OurProcess />
       </section>
 
       {/*<!-- Not sure <section> adds value here -->*/}
