@@ -3,12 +3,12 @@ import React from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
 import Img from 'gatsby-image'
 
-import whatWeDoFullProductDelivery from '@src/images/what-we-do--full-product-delivery.svg'
-import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
-import logoActivision from '@src/images/logo--activision.svg'
-import logoBlackberry from '@src/images/logo--blackberry.svg'
-import logoCarecar from '@src/images/logo--carecar.svg'
-import logoPg from '@src/images/logo--pg.svg'
+// import whatWeDoFullProductDelivery from '@src/images/what-we-do--full-product-delivery.svg'
+// import whatWeDoPrototyping from '@src/images/what-we-do--prototyping.svg'
+// import logoActivision from '@src/images/logo--activision.svg'
+// import logoBlackberry from '@src/images/logo--blackberry.svg'
+// import logoCarecar from '@src/images/logo--carecar.svg'
+// import logoPg from '@src/images/logo--pg.svg'
 import ourProcessDeliver from '@src/images/our-process--deliver.svg'
 import ourProcessDesign from '@src/images/our-process--design.svg'
 import ourProcessDevelop from '@src/images/our-process--develop.svg'
@@ -16,6 +16,7 @@ import ourProcessDiscover from '@src/images/our-process--discover.svg'
 // import Button from '@src/components/button'
 import Hero from './hero'
 import ClientShoutout from './client-shoutout'
+import WhatWeDo from './what-we-do'
 
 const RawHtml = ({ data }) => {
   return (
@@ -26,86 +27,7 @@ const RawHtml = ({ data }) => {
       {/*<!-- Not sure <section> adds value here -->*/}
       {/*<!-- Leaving as it does not add SR noise -->*/}
       <section>
-        <Box sx={{ variant: 'styles.lightSection' }}>
-          <Box sx={{ variant: 'styles.contain', pb: 112 }}>
-            <Box sx={{ variant: 'styles.gridContainer' }}>
-              <Styled.h2
-                sx={{
-                  gridArea: `1 / 2 / 2 / 12`,
-                  mt: 70,
-                  mb: 80,
-                  textAlign: 'center',
-                }}
-              >
-                What We Do
-              </Styled.h2>
-
-              <Flex
-                sx={{
-                  variant: 'styles.whatWeDoItem',
-                  gridArea: `2 / 1 / span 1 / span 6`,
-                }}
-              >
-                <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
-                  <img src={whatWeDoPrototyping} />
-                </Flex>
-                <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
-                  <Styled.h3>Product Prototyping</Styled.h3>
-                  <Styled.p>
-                    Sometimes you need a working example to prove an idea can
-                    actually work, or get a product in front of users. We can
-                    help you prototype quickly, without the time and expense of
-                    production-grade software.
-                  </Styled.p>
-                  <Styled.hr />
-                  <Styled.ul>
-                    <Styled.li>
-                      <Styled.p>
-                        Quickly develop functional proof of concept to validate
-                        an idea
-                      </Styled.p>
-                    </Styled.li>
-                    <Styled.li>
-                      <Styled.p>Start testing your product sooner</Styled.p>
-                    </Styled.li>
-                  </Styled.ul>
-                </Flex>
-              </Flex>
-
-              <Flex
-                sx={{
-                  variant: 'styles.whatWeDoItem',
-                  gridArea: `2 / 7 / span 1 / span 6`,
-                }}
-              >
-                <Flex sx={{ variant: 'styles.whatWeDoItemIcon' }}>
-                  <img src={whatWeDoFullProductDelivery} />
-                </Flex>
-                <Flex sx={{ variant: 'styles.whatWeDoItemCopy' }}>
-                  <Styled.h3>Full Product Delivery</Styled.h3>
-                  <Styled.p>
-                    By understanding your needs, designing deliberately, and
-                    communicating openly through the whole process, we are able
-                    to deliver products your users will love.
-                  </Styled.p>
-                  <Styled.hr />
-                  <Styled.ul>
-                    <Styled.li>
-                      <Styled.p>
-                        Turn your need or idea into production-grate software
-                      </Styled.p>
-                    </Styled.li>
-                    <Styled.li>
-                      <Styled.p>
-                        We’ll help you maintain and evolve your product
-                      </Styled.p>
-                    </Styled.li>
-                  </Styled.ul>
-                </Flex>
-              </Flex>
-            </Box>
-          </Box>
-        </Box>
+        <WhatWeDo />
       </section>
 
       {/*<!-- Not sure <section> adds value here -->*/}

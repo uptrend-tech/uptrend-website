@@ -235,13 +235,13 @@ export default {
       justifyContent: 'center',
     },
 
-    whatWeDoItem: {
+    oldWhatWeDoItem: {
       borderRadius: 5,
       bg: 'backgroundDark',
       px: 40,
       py: 24,
     },
-    whatWeDoItemIcon: {
+    oldWhatWeDoItemIcon: {
       flex: 0,
       minWidth: 106,
       mr: 40,
@@ -249,7 +249,7 @@ export default {
         width: 106,
       },
     },
-    whatWeDoItemCopy: {
+    oldWhatWeDoItemCopy: {
       flexDirection: 'column',
       flex: 1,
       h3: {
