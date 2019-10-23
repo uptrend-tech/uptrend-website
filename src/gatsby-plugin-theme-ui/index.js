@@ -235,108 +235,6 @@ export default {
       justifyContent: 'center',
     },
 
-    oldWhatWeDoItem: {
-      borderRadius: 5,
-      bg: 'backgroundDark',
-      px: 40,
-      py: 24,
-    },
-    oldWhatWeDoItemIcon: {
-      flex: 0,
-      minWidth: 106,
-      mr: 40,
-      img: {
-        width: 106,
-      },
-    },
-    oldWhatWeDoItemCopy: {
-      flexDirection: 'column',
-      flex: 1,
-      h3: {
-        mt: 39,
-        mb: 14,
-      },
-      p: {
-        height: 142,
-        m: 0,
-      },
-      hr: { width: 133, m: 0 },
-      ul: {
-        listStyle: 'none',
-        display: 'block',
-        textAlign: 'left',
-        m: 0,
-        p: 0,
-        li: {
-          p: {
-            variant: 'text.dim',
-            mt: 30,
-            mb: 0,
-            height: 48,
-            lineHeight: 1.33,
-            letterSpacing: 0.9,
-          },
-        },
-      },
-    },
-
-    ourProcessCopy: {
-      variant: 'styles.gridContainer',
-      mb: 45,
-      h2: {
-        gridArea: `1 / 1 / span 1 / span 12`,
-        mt: 80,
-        mb: 21,
-      },
-      p: {
-        m: 0,
-        color: 'muted',
-        gridArea: `2 / 1 / span 1 / span 7`,
-        lineHeight: 1.5,
-        letterSpacing: 1.2,
-        fontWeight: 'normal',
-        fontSize: 3,
-      },
-    },
-    ourProcessSteps: {
-      variant: 'styles.gridContainer',
-      listStyle: 'none',
-      textAlign: 'left',
-      m: 0,
-      mb: 63,
-      p: 0,
-      h3: {
-        color: 'primary',
-        mt: 0,
-        mb: '8px',
-      },
-    },
-    ourProcessStepsItem: {
-      gridArea: `auto / auto / span 1 / span 5`,
-      borderRadius: 5,
-      border: '2px solid',
-      borderColor: 'secondary',
-      py: 34,
-      px: 36,
-      mb: 40,
-      ul: {
-        listStyle: 'none',
-        textAlign: 'left',
-        m: 0,
-        mb: '4px',
-        p: 0,
-        li: {
-          p: {
-            variant: 'text.tight',
-            mt: 0,
-            mb: 10,
-            letterSpacing: 1,
-            color: 'soft',
-          },
-        },
-      },
-    },
-
     ourWork: {
       variant: 'styles.contain',
       pt: 53,
@@ -393,8 +291,8 @@ export default {
     tight: {
       fontSize: 0,
       fontWeight: 800,
-      lineHeight: 1.13,
-      letterSpacing: 1,
+      lineHeight: [1.13],
+      letterSpacing: [1],
     },
     tightDim: {
       color: 'muted',
