@@ -88,8 +88,6 @@ export default {
     },
     Footer: {
       bg: 'backgroundLight',
-      pt: 52,
-      pb: 57,
     },
     a: {
       color: 'primary',

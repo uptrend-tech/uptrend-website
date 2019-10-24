@@ -7,6 +7,7 @@ import ClientShoutout from './client-shoutout'
 import WhatWeDo from './what-we-do'
 import OurProcess from './our-process'
 import OurWork from './our-work'
+import ContactUsSection from './contact-us'
 
 const RawHtml = ({ data }) => {
   return (
@@ -29,29 +30,7 @@ const RawHtml = ({ data }) => {
       </section>
 
       <section>
-        <div>
-          <h2>Contact Us</h2>
-          <div>+contact form+</div>
-        </div>
-        <section>
-          <h2>Our Leaders</h2>
-          <ul>
-            <li>
-              <div>
-                <p>Brandon Orther</p>
-                <p>Founder & CEO</p>
-                <div>+profile image+</div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Benjamin Nelson-Weiss</p>
-                <p>Dev Lead</p>
-                <div>+profile image+</div>
-              </div>
-            </li>
-          </ul>
-        </section>
+        <ContactUsSection />
       </section>
     </>
   )
