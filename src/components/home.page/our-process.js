@@ -73,8 +73,8 @@ const OurPorcessSection = ({ data }) => {
                 fontSize: [1, 3],
               }}>
               Creating intuitive, production-grade software is a major
-              undertaking, but our process keeps you involved and up to speed as
-              we build the solution that best meets your needs.
+              undertaking, but our process keeps you up to speed and in control
+              as we build the solution that best meets your needs.
             </Styled.p>
           </Box>
 
