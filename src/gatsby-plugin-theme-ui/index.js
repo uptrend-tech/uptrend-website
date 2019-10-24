@@ -88,8 +88,6 @@ export default {
     },
     Footer: {
       bg: 'backgroundLight',
-      pt: 52,
-      pb: 57,
     },
     a: {
       color: 'primary',
@@ -233,53 +231,6 @@ export default {
     weveBuiltSolutionsForLogo: {
       gridArea: `2 / auto / span 1 / span 2`,
       justifyContent: 'center',
-    },
-
-    ourWork: {
-      variant: 'styles.contain',
-      pt: 53,
-      pb: 119,
-      h2: {
-        textAlign: 'center',
-        mt: 0,
-        mb: 80,
-      },
-    },
-    ourWorkExamples: {
-      variant: 'styles.gridContainer',
-      listStyle: 'none',
-      textAlign: 'left',
-      m: 0,
-      p: 0,
-      li: {
-        gridArea: `auto / 1 / span 1 / span 5`,
-        display: 'flex',
-        flexDirection: 'column',
-        h3: {
-          color: 'primary',
-          mt: 39,
-          mb: 20,
-          lineHeight: 1,
-          letterSpacing: 0.5,
-        },
-        h4: {
-          mt: 32,
-          mb: 17,
-          fontSize: 1,
-          fontWeight: 500,
-          lineHeight: 1.28,
-          letterSpacing: 1.13,
-          color: 'soft',
-        },
-      },
-    },
-    ourWorkServicesProvided: {
-      fontSize: 0,
-      fontWeight: 900,
-      lineHeight: 1.38,
-      letterSpacing: 1,
-      color: 'soft',
-      my: 0,
     },
   },
 
