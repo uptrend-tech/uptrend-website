@@ -267,12 +267,12 @@ const WhatWeDo = () => {
             artImg={whatWeDoPrototyping}
             title="Product Prototyping"
             description={`
-            Sometimes you need a working example to prove an idea can actually
-            work, or get a product in front of users. We can help you prototype
-            quickly, without the time and expense of production-grade software.
+              Sometimes you need to prove that an idea can actually work, or get
+              your product in front of users now. We can help you prototype
+              quickly, without the time and expense of production-grade software.
             `}
             talkingPointList={[
-              'Quickly develop functional proof of concept to validate an idea',
+              'Quickly develop a functional proof of concept',
               'Start testing your product sooner',
             ]}
           />
@@ -280,12 +280,12 @@ const WhatWeDo = () => {
             artImg={whatWeDoFullProductDelivery}
             title="Full Product Delivery"
             description={`
-            By understanding your needs, designing deliberately, and
-            communicating openly through the whole process, we are able to
-            deliver products your users will love.
+              By understanding your needs, designing deliberately, and
+              communicating openly through the whole process, we are able to
+              deliver products your users will love.
             `}
             talkingPointList={[
-              'Turn your need or idea into production-grate software',
+              'Turn your need or idea into production-grade software',
               'We’ll help you maintain and evolve your product',
             ]}
             left={false}
