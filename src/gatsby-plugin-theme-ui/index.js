@@ -232,6 +232,22 @@ export default {
       gridArea: `2 / auto / span 1 / span 2`,
       justifyContent: 'center',
     },
+    formInput: {
+      mb: [24, 30],
+      bg: 'background',
+      border: t => `2px solid ${t.colors.muted}`,
+      borderRadius: 5,
+      boxShadow: t => `0 2px 10px 0 ${t.colors.inputBackground}`,
+      color: 'text',
+      '&:hover': {
+        borderColor: 'secondary',
+      },
+      '&:focus': {
+        borderColor: 'primary',
+        outline: 'none',
+        color: 'text',
+      },
+    },
   },
 
   text: {
@@ -262,6 +278,7 @@ export default {
       my: 0,
     },
   },
+
   buttons: {
     primary: {
       color: 'text',
@@ -281,6 +298,23 @@ export default {
     secondary: {
       color: 'primary',
       bg: null,
+    },
+  },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: 400,
+      fontFamily: `body`,
+      lineHeight: 1.11,
+      letterSpacing: 0.9,
+      color: 'text',
+      mb: 10,
+    },
+    input: {
+      variant: 'styles.formInput',
+    },
+    textarea: {
+      variant: 'styles.formInput',
     },
   },
 }
