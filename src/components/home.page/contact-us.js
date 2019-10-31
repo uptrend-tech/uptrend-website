@@ -1,22 +1,15 @@
 /** @jsx jsx */
-import React from 'react'
+import React, { useState } from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
-import {
-  Grid,
-  Label,
-  Input,
-  Select,
-  Textarea,
-  // Radio,
-  Checkbox,
-  // Slider,
-} from '@theme-ui/components'
+import { Button, Grid, Input, Label, Textarea } from '@theme-ui/components'
 
 const ContactUsSection = ({ data }) => {
   const [formState, setFormState] = useState({
     name: '',
+    company: '',
     email: '',
-    subject: '',
+    phone: '',
+    subject: 'Uptrend Website - Contact Us Form',
     message: '',
   })
 
@@ -72,29 +65,19 @@ const ContactUsSection = ({ data }) => {
               </Box>
               <Box>
                 <Label htmlFor="company">Company</Label>
-                <Input
-                  type="company"
-                  name="company"
-                  mb={3}
-                  onChange={onChange}
-                />
+                <Input name="company" mb={3} onChange={onChange} />
               </Box>
               <Box>
                 <Label htmlFor="email">Email</Label>
-                <Input email="email" mb={3} onChange={onChange} />
+                <Input name="email" mb={3} onChange={onChange} />
               </Box>
               <Box>
-                <Label htmlFor="telephone">Telephone</Label>
-                <Input
-                  type="telephone"
-                  name="telephone"
-                  mb={3}
-                  onChange={onChange}
-                />
+                <Label htmlFor="phone">Telephone</Label>
+                <Input name="phone" mb={3} onChange={onChange} />
               </Box>
               <Box sx={{ gridColumn: '1 / -1' }}>
-                <Label htmlFor="need-help-with">How can we help you?</Label>
-                <Textarea name="need-help-with" rows="3" onChange={onChange} />
+                <Label htmlFor="message">How can we help you?</Label>
+                <Textarea name="message" rows="3" onChange={onChange} />
               </Box>
               <Box sx={{ gridColumn: '1 / -1' }}>
                 <Button type="submit">Send Mail</Button>
