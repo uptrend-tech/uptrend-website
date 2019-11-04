@@ -281,15 +281,17 @@ export default {
 
   buttons: {
     primary: {
-      color: 'text',
+      color: 'pale',
       bg: 'primary',
-      // width: 300,
-      height: 51,
       fontFamily: 'heading',
       fontSize: 2,
+      fontWeight: 'bold',
+      letterSpacing: 1.11,
+      textAlign: 'centers',
       borderRadius: 5,
       boxShadow: '0 2px 6px 2px rgba(0, 0, 0, 0.56)',
       lineHeight: 1,
+      p: 16,
       '&:hover': {
         bg: 'primaryHover',
         cursor: 'pointer',

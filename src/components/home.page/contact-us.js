@@ -79,8 +79,15 @@ const ContactUsSection = ({ data }) => {
                 <Label htmlFor="message">How can we help you?</Label>
                 <Textarea name="message" rows="3" onChange={onChange} />
               </Box>
-              <Box sx={{ gridColumn: '1 / -1' }}>
-                <Button type="submit">Send Mail</Button>
+              <Box
+                sx={{
+                  gridColumn: '1 / -1',
+                  // mt: [80],
+                  mb: 80, //[223],
+                }}>
+                <Button type="submit" sx={{ width: '100%' }}>
+                  Send
+                </Button>
               </Box>
             </Grid>
           </Box>
