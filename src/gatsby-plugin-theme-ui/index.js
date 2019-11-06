@@ -247,6 +247,7 @@ export default {
         borderColor: 'primary',
         outline: 'none',
         color: 'text',
+        boxShadow: t => `0 2px 10px 0 ${t.colors.inputBackground}`,
       },
     },
   },
@@ -297,7 +298,7 @@ export default {
         bg: 'primaryHover',
         cursor: 'pointer',
       },
-      '&.focus-visible ': {
+      '&.focus-visible': {
         boxShadow: t => `0 0 0 4px ${t.colors.focus}`, //,
         bg: 'primaryHover',
         outline: 'none',
