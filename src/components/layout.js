@@ -48,6 +48,9 @@ const Layout = ({ children }) => {
             outline: 'none',
             boxShadow: t => `0 0 0 3px ${t.colors.focus}`, //,
           },
+          html: {
+            scrollBehavior: 'smooth',
+          },
         })}
       />
       <Header />

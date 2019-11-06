@@ -17,19 +17,19 @@ const RawHtml = ({ data }) => {
 
       {/*<!-- Not sure <section> adds value here -->*/}
       {/*<!-- Leaving as it does not add SR noise -->*/}
-      <section>
+      <section id="what-we-do">
         <WhatWeDo />
       </section>
 
-      <section>
+      <section id="our-process">
         <OurProcess />
       </section>
 
-      <section>
+      <section id="our-work">
         <OurWork data={data} />
       </section>
 
-      <section>
+      <section id="contact-us">
         <ContactUsSection />
       </section>
     </>
