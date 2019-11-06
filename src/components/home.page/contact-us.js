@@ -195,14 +195,12 @@ const ContactUsSection = () => {
                     />
                   </Box>
                   <Box sx={{ gridColumn: '1 / -1' }} />
-                  {!isSubmitting && (
-                    <Button
-                      type="submit"
-                      sx={{ width: '100%', mb: 80 }}
-                      disabled={!isValid || isSubmitting}>
-                      Send Your Message
-                    </Button>
-                  )}
+                  <Button
+                    type="submit"
+                    sx={{ width: '100%', mb: 80 }}
+                    disabled={!isValid || isSubmitting}>
+                    Send Your Message
+                  </Button>
                 </Grid>
               )}
             </Formik>
