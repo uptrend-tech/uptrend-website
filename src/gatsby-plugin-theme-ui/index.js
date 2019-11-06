@@ -303,6 +303,12 @@ export default {
         bg: 'primaryHover',
         outline: 'none',
       },
+      '&:active': {
+        bg: 'backgroundLight',
+      },
+      '&:active:not(.focus-visible)': {
+        boxShadow: 'none',
+      },
     },
     secondary: {
       color: 'primary',
