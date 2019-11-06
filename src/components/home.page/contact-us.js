@@ -66,6 +66,7 @@ const ContactUsSection = ({ data }) => {
                 <Label htmlFor="email">Email</Label>
                 <Input name="email" mb={3} onChange={onChange} />
               </Box>
+              {/*
               <Box>
                 <Label htmlFor="company">Company</Label>
                 <Input name="company" mb={3} onChange={onChange} />
@@ -74,6 +75,7 @@ const ContactUsSection = ({ data }) => {
                 <Label htmlFor="phone">Telephone</Label>
                 <Input name="phone" mb={3} onChange={onChange} />
               </Box>
+               */}
               <Box sx={{ gridColumn: '1 / -1' }}>
                 <Label htmlFor="message">How can we help you?</Label>
                 <Textarea name="message" rows="3" onChange={onChange} />
