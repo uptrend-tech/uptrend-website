@@ -54,7 +54,6 @@ const ContactUsSection = ({ data }) => {
             }}>
             <Grid
               as="form"
-              onSubmit={e => e.preventDefault()}
               columns={[1, 2]}
               gap={29}
               sx={{ gridRowGap: 0 }}
@@ -64,12 +63,12 @@ const ContactUsSection = ({ data }) => {
                 <Input name="name" mb={3} onChange={onChange} />
               </Box>
               <Box>
-                <Label htmlFor="company">Company</Label>
-                <Input name="company" mb={3} onChange={onChange} />
-              </Box>
-              <Box>
                 <Label htmlFor="email">Email</Label>
                 <Input name="email" mb={3} onChange={onChange} />
+              </Box>
+              <Box>
+                <Label htmlFor="company">Company</Label>
+                <Input name="company" mb={3} onChange={onChange} />
               </Box>
               <Box>
                 <Label htmlFor="phone">Telephone</Label>
