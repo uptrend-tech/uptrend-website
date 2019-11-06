@@ -40,6 +40,7 @@ export default {
     inputBackground: darkGreen, //
     seperator: brownGray,
     primaryHover: lightRoyalBlue,
+    focus: `rgba(255, 105, 180, 0.5)`,
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -288,13 +289,18 @@ export default {
       fontWeight: 'bold',
       letterSpacing: 1.11,
       textAlign: 'centers',
-      borderRadius: 5,
       boxShadow: '0 2px 6px 2px rgba(0, 0, 0, 0.56)',
       lineHeight: 1,
+      borderRadius: 5,
       p: 16,
       '&:hover': {
         bg: 'primaryHover',
         cursor: 'pointer',
+      },
+      '&.focus-visible ': {
+        boxShadow: t => `0 0 0 4px ${t.colors.focus}`, //,
+        bg: 'primaryHover',
+        outline: 'none',
       },
     },
     secondary: {

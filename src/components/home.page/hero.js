@@ -26,15 +26,13 @@ const HomePageHero = ({ data }) => {
             variant: 'styles.gridContainer',
             gridTemplateAreas: [stackedAreas, sideBySideAreas],
             mt: [40, 40, 78],
-          }}
-        >
+          }}>
           <Styled.h1
             sx={{
               gridArea: 'h1',
               mt: 0,
               mb: 0,
-            }}
-          >
+            }}>
             {site.headline}
           </Styled.h1>
 
@@ -44,17 +42,18 @@ const HomePageHero = ({ data }) => {
               alignSelf: 'center',
               mt: [32, 0],
               mb: [0, 24],
-            }}
-          >
+            }}>
             <Img
               fluid={data.heroImage.childImageSharp.fluid}
               alt="A phone showing a Gillette website on it's screen and a laptop showing CareCar web app on it's screen"
             />
           </Box>
 
-          <Button sx={{ variant: 'buttons.primary', gridArea: 'btn', mt: 36 }}>
-            Estimate Project
-          </Button>
+          <Box sx={{ gridArea: 'btn', mt: 36 }}>
+            <Button sx={{ variant: 'buttons.primary', width: '100%' }}>
+              Let's Talk
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>

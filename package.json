@@ -22,6 +22,7 @@
     "@mdx-js/react": "^1.4.0",
     "@sendgrid/mail": "^6.4.0",
     "@theme-ui/components": "^0.2.46",
+    "focus-visible": "^5.0.2",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.19",
     "gatsby-plugin-alias-imports": "^1.0.5",
