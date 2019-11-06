@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx, Styled, Box, Flex } from 'theme-ui'
+import { jsx, Styled, Box } from 'theme-ui'
 import Img from 'gatsby-image'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { navigate } from '@reach/router'
 
 import useSiteMetadata from '@src/hooks/use-site-metadata'
 import Button from '@src/components/button'
@@ -50,8 +52,12 @@ const HomePageHero = ({ data }) => {
           </Box>
 
           <Box sx={{ gridArea: 'btn', mt: 36 }}>
-            <Button sx={{ variant: 'buttons.primary', width: '100%' }}>
-              Let's Talk
+            <Button
+              sx={{ variant: 'buttons.primary', width: '100%' }}
+              onClick={() => {
+                navigate('#contact-us')
+              }}>
+              Contact Us
             </Button>
           </Box>
         </Box>
