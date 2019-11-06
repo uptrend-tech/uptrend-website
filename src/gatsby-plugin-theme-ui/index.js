@@ -38,9 +38,11 @@ export default {
     pale: palePurple, //
     soft: redHintWhite, //
     inputBackground: darkGreen, //
+    inputBackgroundError: `rgba(255,0,0,0.3)`,
     seperator: brownGray,
     primaryHover: lightRoyalBlue,
     focus: `rgba(255, 105, 180, 0.5)`,
+    error: 'red',
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -234,7 +236,7 @@ export default {
       justifyContent: 'center',
     },
     formInput: {
-      mb: [24, 30],
+      // mb: [40, 40],
       bg: 'background',
       border: t => `2px solid ${t.colors.muted}`,
       borderRadius: 5,
@@ -294,7 +296,11 @@ export default {
       lineHeight: 1,
       borderRadius: 5,
       p: 16,
-      '&:hover': {
+      '&:disabled': {
+        bg: 'muted',
+        color: 'soft',
+      },
+      '&:hover:not(:disabled)': {
         bg: 'primaryHover',
         cursor: 'pointer',
       },

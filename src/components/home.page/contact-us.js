@@ -1,42 +1,61 @@
 /** @jsx jsx */
 import React, { useState } from 'react'
 import { jsx, Styled, Box, Flex } from 'theme-ui'
-import { Button, Grid, Input, Label, Textarea } from '@theme-ui/components'
+import { Formik } from 'formik'
+import {
+  Button,
+  Grid,
+  Input,
+  Label,
+  Textarea,
+  Text,
+} from '@theme-ui/components'
 
-const ContactUsSection = ({ data }) => {
-  const [formState, setFormState] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    subject: 'Uptrend Website - Contact Us Form',
-    message: '',
-  })
+const InputField = ({
+  fieldName,
+  text,
+  errors,
+  touched,
+  values,
+  handleBlur,
+  handleChange,
+  field,
+  fieldProps,
+  isRequired,
+}) => {
+  const errorMsg = errors[fieldName] && touched[fieldName] && errors[fieldName]
+  const Field = field
 
-  const onChange = e => {
-    setFormState({ ...formState, [e.target.name]: e.target.value })
-  }
+  return (
+    <Box sx={{ pb: 40 }}>
+      <Label htmlFor={fieldName}>
+        {text}
+        {isRequired && '*'}
+      </Label>
+      <Field
+        name={fieldName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values[fieldName]}
+        sx={{
+          bg: errorMsg ? 'inputBackgroundError' : undefined,
+        }}
+        {...fieldProps}
+      />
+      <Text
+        sx={{
+          color: 'error',
+          textAlign: 'right',
+          fontSize: '14px',
+          height: 1,
+        }}>
+        {errorMsg}
+      </Text>
+    </Box>
+  )
+}
 
-  const submitForm = async e => {
-    e.preventDefault()
-
-    try {
-      const response = await fetch('/.netlify/functions/sendmail', {
-        method: 'POST',
-        body: JSON.stringify(formState),
-      })
-
-      if (!response.ok) {
-        //not 200 response
-        return
-      }
-
-      //all OK
-    } catch (e) {
-      //error
-    }
-  }
-
+const ContactUsSection = () => {
   return (
     <>
       <Box sx={{ variant: 'styles.contain' }}>
@@ -52,39 +71,141 @@ const ContactUsSection = ({ data }) => {
                 `span 6`,
               ],
             }}>
-            <Grid
-              as="form"
-              columns={[1, 2]}
-              gap={29}
-              sx={{ gridRowGap: 0 }}
-              onSubmit={submitForm}>
-              <Box>
-                <Label htmlFor="name">Name</Label>
-                <Input name="name" mb={3} onChange={onChange} />
-              </Box>
-              <Box>
-                <Label htmlFor="email">Email</Label>
-                <Input name="email" mb={3} onChange={onChange} />
-              </Box>
-              {/*
-              <Box>
-                <Label htmlFor="company">Company</Label>
-                <Input name="company" mb={3} onChange={onChange} />
-              </Box>
-              <Box>
-                <Label htmlFor="phone">Telephone</Label>
-                <Input name="phone" mb={3} onChange={onChange} />
-              </Box>
-               */}
-              <Box sx={{ gridColumn: '1 / -1' }}>
-                <Label htmlFor="message">How can we help you?</Label>
-                <Textarea name="message" rows="3" onChange={onChange} />
-              </Box>
-              <Box sx={{ gridColumn: '1 / -1' }} />
-              <Button type="submit" sx={{ width: '100%', mb: 80 }}>
-                Send Your Message
-              </Button>
-            </Grid>
+            <Formik
+              initialValues={{
+                name: '',
+                email: '',
+                company: '',
+                phone: '',
+                subject: 'Uptrend Website - Contact Us Form',
+                message: '',
+              }}
+              validate={values => {
+                const errors = {}
+                if (!values.name) {
+                  errors.name = 'This field is required'
+                }
+
+                if (!values.email) {
+                  errors.email = 'This field is required'
+                } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                ) {
+                  errors.email = 'Invalid email address'
+                }
+
+                if (!values.message) {
+                  errors.message = 'This field is required'
+                }
+                return errors
+              }}
+              onSubmit={async (values, { setSubmitting, ...rest }, other) => {
+                console.log('onSubmit', { values, rest, setSubmitting, other })
+                try {
+                  const response = await fetch('/.netlify/functions/sendmail', {
+                    method: 'POST',
+                    body: JSON.stringify(values),
+                  })
+
+                  if (!response.ok) {
+                    setSubmitting(false)
+                    //not 200 response
+                    return
+                  }
+
+                  //all OK
+                } catch (e) {
+                  //error
+                  setSubmitting(false)
+                }
+              }}>
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                isValid,
+                /* and other goodies */
+              }) => (
+                <Grid
+                  as="form"
+                  columns={[1, 2]}
+                  gap={29}
+                  sx={{ gridRowGap: 0 }}
+                  onSubmit={handleSubmit}>
+                  <InputField
+                    fieldName="name"
+                    text="Name"
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    field={Input}
+                    isRequired
+                  />
+                  <InputField
+                    fieldName="email"
+                    text="Email"
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    field={Input}
+                    isRequired
+                  />
+                  {/*
+                  <InputField
+                    fieldName="company"
+                    text="Company Name"
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    field={Input}
+                  />
+                  <InputField
+                    fieldName="phone"
+                    text="Telephone"
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    field={Input}
+                  />
+                  */}
+                  <Box sx={{ gridColumn: '1 / -1' }}>
+                    <InputField
+                      fieldName="message"
+                      text="How can we help you?"
+                      errors={errors}
+                      touched={touched}
+                      values={values}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      field={Textarea}
+                      fieldProps={{ rows: '3' }}
+                      isRequired
+                    />
+                  </Box>
+                  <Box sx={{ gridColumn: '1 / -1' }} />
+                  {!isSubmitting && (
+                    <Button
+                      type="submit"
+                      sx={{ width: '100%', mb: 80 }}
+                      disabled={!isValid || isSubmitting}>
+                      Send Your Message
+                    </Button>
+                  )}
+                </Grid>
+              )}
+            </Formik>
           </Box>
         </Grid>
       </Box>
