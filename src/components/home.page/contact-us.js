@@ -12,6 +12,20 @@ import {
 } from '@theme-ui/components'
 import { lightness } from '@theme-ui/color'
 
+const wait = (ms, value) =>
+  new Promise((r, j) => setTimeout(() => r(value), ms))
+
+const sendEmailMock = () => wait(3000, { ok: true })
+
+const sendEmail = async values => {
+  const response = fetch('/.netlify/functions/sendmail', {
+    method: 'POST',
+    body: JSON.stringify(values),
+  })
+  await wait(1000)
+  return response
+}
+
 const InputField = ({
   fieldName,
   text,
@@ -82,6 +96,33 @@ const ContactUsSection = () => {
   const [isMsgSent, setIsMsgSent] = useState(false)
   const [isMsgError, setIsMsgError] = useState(false)
 
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      setIsMsgError(false)
+      setIsMsgSent(false)
+
+      // NOTE: the following lines are for local dev testing and SHOULD be commented out
+      // const response = await sendEmailMock()
+      // throw new Error()
+      // response.ok = false
+
+      const response = await sendEmail(values)
+      setSubmitting(false)
+
+      if (!response.ok) {
+        //not 200 response
+        setIsMsgError(true)
+        return
+      }
+
+      //all OK
+      setIsMsgSent(true)
+    } catch (e) {
+      //error
+      setIsMsgError(true)
+    }
+  }
+
   return (
     <>
       <Box sx={{ variant: 'styles.contain' }}>
@@ -125,30 +166,7 @@ const ContactUsSection = () => {
                 }
                 return errors
               }}
-              onSubmit={async (values, { setSubmitting, ...rest }, other) => {
-                try {
-                  setIsMsgError(false)
-                  setIsMsgSent(false)
-
-                  const response = await fetch('/.netlify/functions/sendmail', {
-                    method: 'POST',
-                    body: JSON.stringify(values),
-                  })
-
-                  if (!response.ok) {
-                    setSubmitting(false)
-                    setIsMsgSent(true)
-                    //not 200 response
-                    return
-                  }
-
-                  //all OK
-                } catch (e) {
-                  //error
-                  setSubmitting(false)
-                  setIsMsgError(true)
-                }
-              }}>
+              onSubmit={onSubmit}>
               {({
                 values,
                 errors,
