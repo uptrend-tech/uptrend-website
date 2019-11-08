@@ -80,6 +80,7 @@ const InputField = ({
 
 const ContactUsSection = () => {
   const [isMsgSent, setIsMsgSent] = useState(false)
+  const [isMsgError, setIsMsgError] = useState(false)
 
   return (
     <>
@@ -125,13 +126,10 @@ const ContactUsSection = () => {
                 return errors
               }}
               onSubmit={async (values, { setSubmitting, ...rest }, other) => {
-                console.log('onSubmit', {
-                  values,
-                  rest,
-                  setSubmitting,
-                  other,
-                })
                 try {
+                  setIsMsgError(false)
+                  setIsMsgSent(false)
+
                   const response = await fetch('/.netlify/functions/sendmail', {
                     method: 'POST',
                     body: JSON.stringify(values),
@@ -148,6 +146,7 @@ const ContactUsSection = () => {
                 } catch (e) {
                   //error
                   setSubmitting(false)
+                  setIsMsgError(true)
                 }
               }}>
               {({
@@ -231,6 +230,20 @@ const ContactUsSection = () => {
                     />
                   </Box>
                   <Box sx={{ gridColumn: '1 / -1' }} />
+                  {isMsgError && (
+                    <Text
+                      sx={{
+                        textAlign: 'center',
+                        mb: [4, 0],
+                        display: [undefined, 'none'],
+                        color: lightness('error', 0.8),
+                        fontSize: 0,
+                      }}>
+                      Failed to send your message.
+                      <br />
+                      Please try again later.
+                    </Text>
+                  )}
                   {isMsgSent && (
                     <Text
                       sx={{
@@ -251,6 +264,22 @@ const ContactUsSection = () => {
                       {isMsgSent ? 'Message Sent!' : 'Send Message'}
                     </Button>
                   </Box>
+                  {isMsgError && (
+                    <Text
+                      sx={{
+                        textAlign: 'center',
+                        height: 'fit-content',
+                        borderRadius: 5,
+                        mb: [4, 0],
+                        display: ['none', 'block'],
+                        color: lightness('error', 0.8),
+                        fontSize: 0,
+                      }}>
+                      Failed to send your message.
+                      <br />
+                      Please try again later.
+                    </Text>
+                  )}
                   {isMsgSent && (
                     <Text
                       sx={{
