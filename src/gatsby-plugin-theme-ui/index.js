@@ -42,7 +42,9 @@ export default {
     seperator: brownGray,
     primaryHover: lightRoyalBlue,
     focus: `rgba(255, 105, 180, 0.5)`,
-    error: 'red',
+    success: '#2e862d',
+    errorFlat: '#f87777',
+    error: '#e93a3a',
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,

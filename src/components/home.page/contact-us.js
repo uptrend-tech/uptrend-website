@@ -11,6 +11,7 @@ import {
   Text,
 } from '@theme-ui/components'
 import { lightness } from '@theme-ui/color'
+import { IoIosCloseCircleOutline, IoIosCheckmarkCircle } from 'react-icons/io'
 
 const wait = (ms, value) =>
   new Promise((r, j) => setTimeout(() => r(value), ms))
@@ -42,28 +43,23 @@ const InputField = ({
   const errorMsg = errors[fieldName] && touched[fieldName] && errors[fieldName]
   const Field = field
 
-  const borderColor = isDisabled ? lightness('muted', 0.2) : undefined
-  const color = isDisabled ? lightness('text', 0.4) : undefined
+  const borderColor = isDisabled
+    ? lightness('muted', 0.2)
+    : errorMsg
+    ? 'errorFlat'
+    : undefined
+
+  const labelColor = isDisabled ? lightness('text', 0.65) : undefined
   const boxShadow = isDisabled ? 'none' : undefined
-
-  const labelStyles = {
-    color: isDisabled ? lightness('text', 0.65) : undefined,
-  }
-  const fieldStyles = {
-    borderColor,
-    color,
-    boxShadow,
-
-    '&:hover': isDisabled
-      ? {
-          borderColor,
-        }
-      : undefined,
-  }
+  const color = isDisabled ? lightness('text', 0.4) : undefined
 
   return (
     <Box sx={{ pb: 40 }}>
-      <Label htmlFor={fieldName} sx={{ ...labelStyles }}>
+      <Label
+        htmlFor={fieldName}
+        sx={{
+          color: labelColor,
+        }}>
         {text}
         {isRequired && '*'}
       </Label>
@@ -73,21 +69,29 @@ const InputField = ({
         onBlur={handleBlur}
         value={values[fieldName]}
         sx={{
-          bg: errorMsg ? 'inputBackgroundError' : undefined,
-          ...fieldStyles,
+          borderColor,
+          color,
+          boxShadow,
+          '&:hover': isDisabled ? { borderColor } : undefined,
+          '&:focus': errorMsg ? { borderColor: 'error' } : undefined,
         }}
         {...fieldProps}
         disabled={isDisabled}
       />
-      <Text
-        sx={{
-          color: 'error',
-          textAlign: 'right',
-          fontSize: '14px',
-          height: 1,
-        }}>
-        {errorMsg}
-      </Text>
+      {errorMsg && (
+        <Box sx={{ position: 'relative', top: 1 }}>
+          <Flex
+            sx={{
+              alignItems: 'end',
+              height: 0,
+              color: 'error',
+              mt: 1,
+            }}>
+            <IoIosCloseCircleOutline sx={{ fontSize: '18px', mr: 1 }} />
+            <Text sx={{ fontSize: '14px' }}>{errorMsg}</Text>
+          </Flex>
+        </Box>
+      )}
     </Box>
   )
 }
@@ -248,6 +252,7 @@ const ContactUsSection = () => {
                     />
                   </Box>
                   <Box sx={{ gridColumn: '1 / -1' }} />
+                  {/*
                   {isMsgError && (
                     <Text
                       sx={{
@@ -274,6 +279,7 @@ const ContactUsSection = () => {
                       We will be in contact shortly!
                     </Text>
                   )}
+                    */}
                   <Box sx={{ width: '100%', mb: 80 }}>
                     <Button
                       type="submit"
@@ -290,7 +296,7 @@ const ContactUsSection = () => {
                         borderRadius: 5,
                         mb: [4, 0],
                         display: ['none', 'block'],
-                        color: lightness('error', 0.8),
+                        color: lightness('errorFlat', 0.8),
                         fontSize: 0,
                       }}>
                       Failed to send your message.
@@ -298,17 +304,21 @@ const ContactUsSection = () => {
                       Please try again later.
                     </Text>
                   )}
+                  <IoIosCheckmarkCircle sx={{ color: 'success' }} />
                   {isMsgSent && (
-                    <Text
-                      sx={{
-                        textAlign: 'center',
-                        mb: [4, 0],
-                        display: ['none', 'block'],
-                      }}>
-                      Your message was sent.
-                      <br />
-                      We will be in contact shortly!
-                    </Text>
+                    <Flex>
+                      <IoIosCheckmarkCircle />
+                      <Text
+                        sx={{
+                          textAlign: 'center',
+                          mb: [4, 0],
+                          display: ['none', 'block'],
+                        }}>
+                        Your message was sent.
+                        <br />
+                        We will be in contact shortly!
+                      </Text>
+                    </Flex>
                   )}
                 </Grid>
               )}
