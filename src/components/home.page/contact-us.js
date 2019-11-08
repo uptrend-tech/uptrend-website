@@ -11,7 +11,7 @@ import {
   Text,
 } from '@theme-ui/components'
 import { lightness } from '@theme-ui/color'
-import { IoIosCloseCircleOutline, IoIosCheckmarkCircle } from 'react-icons/io'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 const wait = (ms, value) =>
   new Promise((r, j) => setTimeout(() => r(value), ms))
@@ -304,10 +304,8 @@ const ContactUsSection = () => {
                       Please try again later.
                     </Text>
                   )}
-                  <IoIosCheckmarkCircle sx={{ color: 'success' }} />
                   {isMsgSent && (
                     <Flex>
-                      <IoIosCheckmarkCircle />
                       <Text
                         sx={{
                           textAlign: 'center',
