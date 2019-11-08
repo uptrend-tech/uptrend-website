@@ -2,6 +2,8 @@
 import React from 'react'
 import { Global } from '@emotion/core'
 import { Main, Layout as ThemeLayout, jsx, css } from 'theme-ui'
+import 'focus-visible' // polyfill for proposed CSS :focus-visible pseudo-selector
+
 import '../fonts/avenir-lt-std.css'
 import '../fonts/comfortaa-v2.css'
 
@@ -38,6 +40,16 @@ const Layout = ({ children }) => {
           '#___gatsby': {
             position: `relative`,
             overflowX: `hidden`,
+          },
+          '.js-focus-visible :focus:not(.focus-visible)': {
+            outline: 'none',
+          },
+          '.js-focus-visible .focus-visible': {
+            outline: 'none',
+            boxShadow: t => `0 0 0 3px ${t.colors.focus}`, //,
+          },
+          html: {
+            scrollBehavior: 'smooth',
           },
         })}
       />

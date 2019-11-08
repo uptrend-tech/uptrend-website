@@ -38,8 +38,11 @@ export default {
     pale: palePurple, //
     soft: redHintWhite, //
     inputBackground: darkGreen, //
+    inputBackgroundError: `rgba(255,0,0,0.3)`,
     seperator: brownGray,
     primaryHover: lightRoyalBlue,
+    focus: `rgba(255, 105, 180, 0.5)`,
+    error: 'red',
   },
   fonts: {
     body: `"AvenirLTStd", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -232,6 +235,23 @@ export default {
       gridArea: `2 / auto / span 1 / span 2`,
       justifyContent: 'center',
     },
+    formInput: {
+      // mb: [40, 40],
+      bg: 'background',
+      border: t => `2px solid ${t.colors.muted}`,
+      borderRadius: 5,
+      boxShadow: t => `0 2px 10px 0 ${t.colors.inputBackground}`,
+      color: 'text',
+      '&:hover': {
+        borderColor: 'secondary',
+      },
+      '&:focus': {
+        borderColor: 'primary',
+        outline: 'none',
+        color: 'text',
+        boxShadow: t => `0 2px 10px 0 ${t.colors.inputBackground}`,
+      },
+    },
   },
 
   text: {
@@ -262,25 +282,60 @@ export default {
       my: 0,
     },
   },
+
   buttons: {
     primary: {
-      color: 'text',
+      color: 'pale',
       bg: 'primary',
-      // width: 300,
-      height: 51,
       fontFamily: 'heading',
       fontSize: 2,
-      borderRadius: 5,
+      fontWeight: 'bold',
+      letterSpacing: 1.11,
+      textAlign: 'centers',
       boxShadow: '0 2px 6px 2px rgba(0, 0, 0, 0.56)',
       lineHeight: 1,
-      '&:hover': {
+      borderRadius: 5,
+      p: 16,
+      '&:disabled': {
+        bg: 'muted',
+        color: 'soft',
+      },
+      '&:hover:not(:disabled)': {
         bg: 'primaryHover',
         cursor: 'pointer',
+      },
+      '&.focus-visible': {
+        boxShadow: t => `0 0 0 4px ${t.colors.focus}`, //,
+        bg: 'primaryHover',
+        outline: 'none',
+      },
+      '&:active': {
+        bg: 'backgroundLight',
+      },
+      '&:active:not(.focus-visible)': {
+        boxShadow: 'none',
       },
     },
     secondary: {
       color: 'primary',
       bg: null,
+    },
+  },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: 400,
+      fontFamily: `body`,
+      lineHeight: 1.11,
+      letterSpacing: 0.9,
+      color: 'text',
+      mb: 10,
+    },
+    input: {
+      variant: 'styles.formInput',
+    },
+    textarea: {
+      variant: 'styles.formInput',
     },
   },
 }

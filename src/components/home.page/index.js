@@ -9,6 +9,10 @@ import OurProcess from './our-process'
 import OurWork from './our-work'
 import ContactUsSection from './contact-us'
 
+const Section = ({ sx = {}, ...props }) => (
+  <section sx={{ ...sx, overflow: 'hidden' }} {...props} />
+)
+
 const RawHtml = ({ data }) => {
   return (
     <>
@@ -17,21 +21,21 @@ const RawHtml = ({ data }) => {
 
       {/*<!-- Not sure <section> adds value here -->*/}
       {/*<!-- Leaving as it does not add SR noise -->*/}
-      <section>
+      <Section id="what-we-do">
         <WhatWeDo />
-      </section>
+      </Section>
 
-      <section>
+      <Section id="our-process">
         <OurProcess />
-      </section>
+      </Section>
 
-      <section>
+      <Section id="our-work">
         <OurWork data={data} />
-      </section>
+      </Section>
 
-      <section>
+      <Section id="contact-us">
         <ContactUsSection />
-      </section>
+      </Section>
     </>
   )
 }

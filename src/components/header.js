@@ -6,15 +6,7 @@ import logo from '../images/uptrend-logo.svg'
 import logoDiamond from '../images/uptrend-logo--diamond.svg'
 import NavLink from '../components/nav-link'
 
-const styles = {
-  nav: {
-    li: {
-      listStyle: 'none',
-      display: 'inline-block',
-      textAlign: 'center',
-    },
-  },
-}
+const PageLink = ({ ...props }) => <NavLink {...props} inAppLink={true} />
 
 const Header = () => {
   return (
@@ -22,14 +14,12 @@ const Header = () => {
       <Box
         sx={{
           variant: 'styles.contain',
-        }}
-      >
+        }}>
         <Flex
           sx={{
             justifyContent: ['center', 'space-between'],
             my: ['8px', '16px', 24],
-          }}
-        >
+          }}>
           <img
             src={logoDiamond}
             alt="Uptrend Logomark"
@@ -54,16 +44,16 @@ const Header = () => {
           <nav sx={{ display: ['none', 'none', 'block'] }}>
             <ul>
               <li>
-                <NavLink to="/#top">Home</NavLink>
+                <PageLink href="/#top">Home</PageLink>
               </li>
               <li>
-                <NavLink href="/#what-we-do">What We Do</NavLink>
+                <PageLink href="/#what-we-do">What We Do</PageLink>
               </li>
               <li>
-                <NavLink href="/#our-work">Our Work</NavLink>
+                <PageLink href="/#our-work">Our Work</PageLink>
               </li>
               <li>
-                <NavLink href="/#contact-us">Contact Us</NavLink>
+                <PageLink href="/#contact-us">Contact Us</PageLink>
               </li>
             </ul>
           </nav>

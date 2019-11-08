@@ -5,17 +5,26 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "start": "run-p start:**",
+    "start:app": "npm run dev",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "gatsby build && netlify-lambda build src/lambda",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "dev": "gatsby develop",
     "lint": "kcd-scripts lint",
     "format": "kcd-scripts format",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
     "@mdx-js/react": "^1.4.0",
+    "@sendgrid/mail": "^6.4.0",
+    "@theme-ui/color": "^0.2.44",
+    "@theme-ui/components": "^0.2.46",
+    "focus-visible": "^5.0.2",
+    "formik": "^2.0.3",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.19",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -31,7 +40,10 @@
   },
   "devDependencies": {
     "eslint": "^6.4.0",
+    "http-proxy-middleware": "^0.20.0",
     "kcd-scripts": "^1.7.0",
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2"
   },
   "eslintConfig": {
