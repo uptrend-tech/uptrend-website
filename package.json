@@ -21,6 +21,7 @@
     "@emotion/core": "^10.0.16",
     "@mdx-js/react": "^1.4.0",
     "@sendgrid/mail": "^6.4.0",
+    "@theme-ui/color": "^0.2.44",
     "@theme-ui/components": "^0.2.46",
     "focus-visible": "^5.0.2",
     "formik": "^2.0.3",

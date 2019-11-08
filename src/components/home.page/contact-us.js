@@ -10,6 +10,7 @@ import {
   Textarea,
   Text,
 } from '@theme-ui/components'
+import { lightness } from '@theme-ui/color'
 
 const InputField = ({
   fieldName,
@@ -22,13 +23,33 @@ const InputField = ({
   field,
   fieldProps,
   isRequired,
+  isDisabled,
 }) => {
   const errorMsg = errors[fieldName] && touched[fieldName] && errors[fieldName]
   const Field = field
 
+  const borderColor = isDisabled ? lightness('muted', 0.2) : undefined
+  const color = isDisabled ? lightness('text', 0.4) : undefined
+  const boxShadow = isDisabled ? 'none' : undefined
+
+  const labelStyles = {
+    color: isDisabled ? lightness('text', 0.65) : undefined,
+  }
+  const fieldStyles = {
+    borderColor,
+    color,
+    boxShadow,
+
+    '&:hover': isDisabled
+      ? {
+          borderColor,
+        }
+      : undefined,
+  }
+
   return (
     <Box sx={{ pb: 40 }}>
-      <Label htmlFor={fieldName}>
+      <Label htmlFor={fieldName} sx={{ ...labelStyles }}>
         {text}
         {isRequired && '*'}
       </Label>
@@ -39,8 +60,10 @@ const InputField = ({
         value={values[fieldName]}
         sx={{
           bg: errorMsg ? 'inputBackgroundError' : undefined,
+          ...fieldStyles,
         }}
         {...fieldProps}
+        disabled={isDisabled}
       />
       <Text
         sx={{
@@ -56,6 +79,8 @@ const InputField = ({
 }
 
 const ContactUsSection = () => {
+  const [isMsgSent, setIsMsgSent] = useState(false)
+
   return (
     <>
       <Box sx={{ variant: 'styles.contain' }}>
@@ -100,7 +125,12 @@ const ContactUsSection = () => {
                 return errors
               }}
               onSubmit={async (values, { setSubmitting, ...rest }, other) => {
-                console.log('onSubmit', { values, rest, setSubmitting, other })
+                console.log('onSubmit', {
+                  values,
+                  rest,
+                  setSubmitting,
+                  other,
+                })
                 try {
                   const response = await fetch('/.netlify/functions/sendmail', {
                     method: 'POST',
@@ -109,6 +139,7 @@ const ContactUsSection = () => {
 
                   if (!response.ok) {
                     setSubmitting(false)
+                    setIsMsgSent(true)
                     //not 200 response
                     return
                   }
@@ -145,6 +176,7 @@ const ContactUsSection = () => {
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                     field={Input}
+                    isDisabled={isSubmitting || isMsgSent}
                     isRequired
                   />
                   <InputField
@@ -156,6 +188,7 @@ const ContactUsSection = () => {
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                     field={Input}
+                    isDisabled={isSubmitting || isMsgSent}
                     isRequired
                   />
                   {/*
@@ -190,17 +223,46 @@ const ContactUsSection = () => {
                       handleChange={handleChange}
                       handleBlur={handleBlur}
                       field={Textarea}
-                      fieldProps={{ rows: '3' }}
+                      fieldProps={{
+                        rows: '3',
+                      }}
+                      isDisabled={isSubmitting || isMsgSent}
                       isRequired
                     />
                   </Box>
                   <Box sx={{ gridColumn: '1 / -1' }} />
-                  <Button
-                    type="submit"
-                    sx={{ width: '100%', mb: 80 }}
-                    disabled={!isValid || isSubmitting}>
-                    Send Your Message
-                  </Button>
+                  {isMsgSent && (
+                    <Text
+                      sx={{
+                        textAlign: 'center',
+                        mb: [4, 0],
+                        display: [undefined, 'none'],
+                      }}>
+                      Your message was sent.
+                      <br />
+                      We will be in contact shortly!
+                    </Text>
+                  )}
+                  <Box sx={{ width: '100%', mb: 80 }}>
+                    <Button
+                      type="submit"
+                      sx={{ width: '100%' }}
+                      disabled={!isValid || isSubmitting || isMsgSent}>
+                      {isMsgSent ? 'Message Sent!' : 'Send Message'}
+                    </Button>
+                  </Box>
+                  {isMsgSent && (
+                    <Text
+                      sx={{
+                        textAlign: 'center',
+                        mb: [4, 0],
+                        display: ['none', 'block'],
+                      }}>
+                      Your message was sent.
+                      <br />
+                      We will be in contact shortly!
+                    </Text>
+                  )}
                 </Grid>
               )}
             </Formik>
