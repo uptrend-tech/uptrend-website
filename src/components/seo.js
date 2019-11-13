@@ -1,7 +1,7 @@
-import React from "react"
-import Helmet from "react-helmet"
-import useSiteMetadata from "../hooks/use-site-metadata"
-import useBuildTime from "../hooks/use-build-time"
+import React from 'react'
+import Helmet from 'react-helmet'
+import useSiteMetadata from '../hooks/use-site-metadata'
+import useBuildTime from '../hooks/use-build-time'
 
 const defaultProps = {
   description: false,
@@ -43,40 +43,40 @@ const SEO = ({
     image: `${siteUrl}${image || defaultImage}`,
   }
   const schemaHomepage = {
-    "@context": `http://schema.org`,
-    "@type": `WebPage`,
+    '@context': `http://schema.org`,
+    '@type': `WebPage`,
     author: {
-      "@id": `${siteUrl}/#identity`,
+      '@id': `${siteUrl}/#identity`,
     },
     copyrightHolder: {
-      "@id": `${siteUrl}/#identity`,
+      '@id': `${siteUrl}/#identity`,
     },
     copyrightYear: `2019-07-17T23:33:12-05:00`,
     creator: {
-      "@id": `${siteUrl}/#creator`,
+      '@id': `${siteUrl}/#creator`,
     },
     dateModified: buildTime,
     datePublished: `2019-08-29T23:33:12-05:00`,
     description: defaultDescription,
     headline,
     image: {
-      "@type": `ImageObject`,
+      '@type': `ImageObject`,
       url: seo.image,
     },
     inLanguage: `en`,
     mainEntityOfPage: siteUrl,
     name: defaultTitleAlt,
     publisher: {
-      "@id": `${siteUrl}/#creator`,
+      '@id': `${siteUrl}/#creator`,
     },
     url: siteUrl,
   }
   const orgaCreator = input => ({
-    "@context": `http://schema.org`,
-    "@id": `${siteUrl}/#${input}`,
-    "@type": `Organization`,
+    '@context': `http://schema.org`,
+    '@id': `${siteUrl}/#${input}`,
+    '@type': `Organization`,
     address: {
-      "@type": `PostalAddress`,
+      '@type': `PostalAddress`,
       addressCountry: `US`,
       addressLocality: ``,
       postalCode: ``,
@@ -90,13 +90,13 @@ const SEO = ({
     foundingDate: `2015-09-03`,
     foundingLocation: `San Diego County, California`,
     image: {
-      "@type": `ImageObject`,
+      '@type': `ImageObject`,
       url: `${siteUrl}/social/avatar.png`,
       height: `512`,
       width: `512`,
     },
     logo: {
-      "@type": `ImageObject`,
+      '@type': `ImageObject`,
       url: `${siteUrl}/social/avatar_small.png`,
       height: `60`,
       width: `60`,
@@ -205,8 +205,8 @@ const SEO = ({
         sizes="180x180"
         href="/apple-touch-icon.png"
       />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5a67d8" />
-      <meta name="msapplication-TileColor" content="#f7fafc" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#363648" />
+      <meta name="msapplication-TileColor" content="#f9f9f9" />
       {newsletter && (
         <meta name="article:published_time" content={datePublished} />
       )}
