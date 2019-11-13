@@ -89,7 +89,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    // `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify`,
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
