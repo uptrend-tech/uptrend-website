@@ -7,7 +7,7 @@ import 'focus-visible' // polyfill for proposed CSS :focus-visible pseudo-select
 import '../fonts/avenir-lt-std.css'
 import '../fonts/comfortaa-v2.css'
 
-// import SEO from './seo'
+import SEO from './seo'
 import Header from './header'
 import Footer from './footer'
 
@@ -53,6 +53,7 @@ const Layout = ({ children }) => {
           },
         })}
       />
+      <SEO />
       <Header />
       <Main>{children}</Main>
       <Footer />
