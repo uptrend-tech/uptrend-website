@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 
 const WorkListItem = ({
   dataImage,
+  imgAlt,
   title,
   body,
   servicesProvided,
@@ -26,7 +27,11 @@ const WorkListItem = ({
         flexDirection: 'column',
         mb: 52,
       }}>
-      <Img fluid={dataImage.childImageSharp.fluid} sx={{ borderRadius: 5 }} />
+      <Img
+        fluid={dataImage.childImageSharp.fluid}
+        sx={{ borderRadius: 5 }}
+        alt={imgAlt}
+      />
       <Styled.h3
         sx={{
           color: 'primary',
@@ -93,6 +98,7 @@ const OurWorkSection = ({ data }) => {
             }}>
             <WorkListItem
               dataImage={data.ourWorkCareCarImage}
+              imgAlt="An empty two lane paved road with yellow passing lane markers running down the middle, going away into the distance, and surrounded by pine trees on both sides"
               title="CareCar"
               body={`
                 CareCar provides non-emergency medical transportation services
@@ -110,6 +116,7 @@ const OurWorkSection = ({ data }) => {
             />
             <WorkListItem
               dataImage={data.ourWorkTunelinksImage}
+              imgAlt="A set of over-ear headphones sitting on a wooden desk"
               title="Tunelinks"
               body={`
                 Tunelinks is an online distribution platform for streaming and

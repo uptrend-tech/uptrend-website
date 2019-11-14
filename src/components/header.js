@@ -22,7 +22,7 @@ const Header = () => {
           }}>
           <img
             src={logoDiamond}
-            alt="Uptrend Logomark"
+            alt="The Uptrend logo's diamond shape"
             sx={{ height: 48, display: ['block', 'none'] }}
           />
 
@@ -32,7 +32,7 @@ const Header = () => {
             <Link to="/#top">
               <img
                 src={logo}
-                alt="Uptrend Logo"
+                alt="The Uptrend logo's text 'Uptrend'"
                 sx={{ height: 48, display: 'block' }}
               />
             </Link>

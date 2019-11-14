@@ -7,12 +7,16 @@ import logoBlackberry from '@src/images/logo--blackberry.svg'
 import logoCarecar from '@src/images/logo--carecar.svg'
 import logoPg from '@src/images/logo--pg.svg'
 
-const ClientLogo = ({ logoSrc, index }) => {
+const ClientLogo = ({ src, clientName, index }) => {
   const minHeight = [80, 80, 80, 80, 96]
   const gridArea = `c${index + 1}`
   return (
     <Flex sx={{ gridArea, minHeight, justifyContent: 'center' }}>
-      <img src={logoSrc} sx={{ maxWidth: '100%', maxHeight: '100%' }} />
+      <img
+        src={src}
+        sx={{ maxWidth: '100%', maxHeight: '100%' }}
+        alt={`${clientName} Logo`}
+      />
     </Flex>
   )
 }
@@ -59,8 +63,7 @@ const ClientShoutout = () => {
             pb: [40, 40, 40, 40, 67],
             textAlign: ['center', 'center', 'left'],
             alignItems: 'center',
-          }}
-        >
+          }}>
           <Styled.hr
             sx={{
               gridArea: `hr`,
@@ -75,13 +78,21 @@ const ClientShoutout = () => {
               whiteSpace: ['nowrap', 'normal'],
               my: 0,
               mb: ['5px', '5px', '5px', '5px', 0],
-            }}
-          >{`We've Built Solutions For`}</Styled.h3>
-          {[logoPg, logoBlackberry, logoCarecar, logoActivision].map(
-            (logo, i) => (
-              <ClientLogo logoSrc={logo} index={i} key={i} />
-            )
-          )}
+            }}>{`We've Built Solutions For`}</Styled.h3>
+
+          {[
+            { src: logoPg, clientName: 'Procter & Gamble' },
+            { src: logoBlackberry, clientName: 'Blackberry' },
+            { src: logoCarecar, clientName: 'CareCar' },
+            { src: logoActivision, clientName: 'Activision' },
+          ].map((logo, i) => (
+            <ClientLogo
+              src={logo.src}
+              clientName={logo.clientName}
+              index={i}
+              key={i}
+            />
+          ))}
         </Box>
       </Box>
     </>
