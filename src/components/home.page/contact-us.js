@@ -42,6 +42,7 @@ const InputField = ({
 }) => {
   const errorMsg = errors[fieldName] && touched[fieldName] && errors[fieldName]
   const Field = field
+  const fieldId = `contact-us--${fieldName}`
 
   const borderColor = isDisabled
     ? lightness('muted', 0.2)
@@ -56,14 +57,17 @@ const InputField = ({
   return (
     <Box sx={{ pb: 40 }}>
       <Label
-        htmlFor={fieldName}
+        htmlFor={fieldId}
         sx={{
           color: labelColor,
+          mb: 0,
+          pb: 10,
         }}>
         {text}
         {isRequired && '*'}
       </Label>
       <Field
+        id={fieldId}
         name={fieldName}
         onChange={handleChange}
         onBlur={handleBlur}
