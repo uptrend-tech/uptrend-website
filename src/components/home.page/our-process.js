@@ -53,8 +53,7 @@ const OurPorcessSection = ({ data }) => {
                 gridArea: `1 / 1 / span 1 / span 12`,
                 mt: [66, 80],
                 mb: [22, 21],
-              }}
-              id="our-process">
+              }}>
               Our Process
             </Styled.h2>
             <Styled.p
