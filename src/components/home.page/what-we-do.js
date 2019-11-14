@@ -66,7 +66,7 @@ const DetailCell = ({ children, gridArea, left = true }) => {
   )
 }
 
-const Art = ({ img, left }) => {
+const Art = ({ img, left, alt }) => {
   const responsiveWidths = [87, 106]
   return (
     <ArtCell left={left}>
@@ -81,7 +81,7 @@ const Art = ({ img, left }) => {
           mt: 40,
           mb: [0, 24],
         }}>
-        <img src={img} />
+        <img src={img} alt={alt} />
       </Flex>
     </ArtCell>
   )
@@ -206,6 +206,7 @@ const WhatWeDoItemBackground = ({ left = true }) => {
 
 const WhatWeDoItem = ({
   artImg,
+  artImgAlt,
   title,
   description,
   talkingPointList,
@@ -214,7 +215,7 @@ const WhatWeDoItem = ({
   return (
     <>
       <WhatWeDoItemBackground left={left} />
-      <Art img={artImg} left={left} />
+      <Art img={artImg} left={left} alt={artImgAlt} />
       <Title left={left}>{title}</Title>
       <Description left={left}>{description}</Description>
       <BreakLine left={left} />
@@ -265,6 +266,7 @@ const WhatWeDo = () => {
         <WhatWeDoGrid>
           <WhatWeDoItem
             artImg={whatWeDoPrototyping}
+            artImgAlt="A browser window with a sprocket-wheel overlaying it drawn as line-art."
             title="Product Prototyping"
             description={`
               Sometimes you need to prove that an idea can actually work, or get
@@ -278,6 +280,7 @@ const WhatWeDo = () => {
           />
           <WhatWeDoItem
             artImg={whatWeDoFullProductDelivery}
+            artImgAlt="A square made from 4 arrows pointing right forming continous loop around a 5-point star"
             title="Full Product Delivery"
             description={`
               By understanding your needs, designing deliberately, and
