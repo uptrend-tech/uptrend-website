@@ -6681,6 +6681,13 @@ gatsby-plugin-page-creator@^2.1.21:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-react-helmet@^3.1.14:
+  version "3.1.14"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.14.tgz#322b6586206c3f850b504a18e9277c6866494b18"
+  integrity sha512-08I1QEiYmZ+H2pcnKWNsbWYq+N6rG0JIqve9nhZVCzprIy0BW5IvMcs3NE0eYn35mCMC/vnw8EA4cvvpGenzxg==
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+
 gatsby-plugin-sharp@^2.2.22:
   version "2.2.25"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.25.tgz#8ce172071d914123b895e5ffd5b1c06bf294a481"
