@@ -51,12 +51,12 @@ const SEO = ({
     copyrightHolder: {
       '@id': `${siteUrl}/#identity`,
     },
-    copyrightYear: `2019-07-17T23:33:12-05:00`,
+    copyrightYear: `2020-05-21T23:33:12-05:00`,
     creator: {
       '@id': `${siteUrl}/#creator`,
     },
     dateModified: buildTime,
-    datePublished: `2019-08-29T23:33:12-05:00`,
+    datePublished: `2020-05-21T23:33:12-05:00`,
     description: defaultDescription,
     headline,
     image: {
