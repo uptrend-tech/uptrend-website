@@ -49,7 +49,7 @@ const Footer = () => (
           lineHeight: 1.25,
           letterSpacing: 0.8,
         }}>
-        2019, Uptrend Technology
+        2020, Uptrend Technology
       </Styled.p>
     </Box>
   </ThemeFooter>
